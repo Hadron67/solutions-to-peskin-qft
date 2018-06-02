@@ -1,0 +1,32 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, margin = 1in]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{latexsym}
+
+% math
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\hodge}{{}^\star}
+
+% counter for problems
+\newcounter{problemCounter}[section]
+\newcommand{\problem}{\stepcounter{problemCounter}\noindent\textbf{\arabic{section}.\arabic{problemCounter}} \quad}
+\newcommand{\solution}{\noindent\textbf{Solutions for \arabic{section}.\arabic{problemCounter}}}
+
+% chapter 1 has no problem, begin with chapter 2
+\setcounter{section}{1}
+
+% equation numbers
+\numberwithin{equation}{section}
+
+\numberwithin{problemCounter}{section}
+
+\author{hadroncfy}
+\title{Solutions to problems in \textit{An Introduction to Quantum Field Theory}}
+
+\begin{document}
+\maketitle
+\include{chapter2}
+\include{chapter3}
+\end{document}

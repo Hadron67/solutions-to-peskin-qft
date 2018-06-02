@@ -1,0 +1,298 @@
+\section{Chapter 2}
+
+\setcounter{equation}{66}
+\problem Classical electromagnetism (with no sources) follows from the action
+\begin{equation}
+    S = \int \dd^4 x \left(-\frac{1}{4} F_{\mu\nu} F^{\mu\nu} \right), 
+    \qquad \text{where } F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
+\end{equation}
+\begin{enumerate}[label = {(\alph*)}]
+    \item Derive Maxwell's equations as the Eular-Lagrange equations of this action, treating the 
+    components $A_\mu$ as the dynamical variables.
+    \item Construct the energy-momentum tensor for this theory. Note that the usual procedure does
+    not result in a symmetric tensor. To remedy this, we can add to $T^{\mu\nu}$ a term of the form 
+    $\partial_\lambda K^{\lambda\mu\nu}$, where $K^{\lambda\mu\nu}$ is antisymmetric in its first two
+    indices. Such an object is automatically divergenceless, so
+    \begin{equation*}
+        \widehat{T}^{\mu\nu} = T^{\mu\nu} + \partial_\lambda K^{\lambda\mu\nu}
+    \end{equation*}
+    is an equally good energy-momentum tensor with the same globally conserved energy and momentum. Show 
+    that this construction with
+    \begin{equation*}
+        K^{\lambda\mu\nu} = F^{\mu\lambda} A^\nu
+    \end{equation*}
+    leads to an energy-momentum tensor $\widehat{T}^{\mu\nu}$ that is symmetric and yields the standard
+    formulae for the electromagnetic energy and momentum densities
+    \begin{equation*}
+        \mathcal{E} = \frac{1}{2}(E^2 + B^2); \quad \vec{S} = \vec{E} \times \vec{B}
+    \end{equation*}
+\end{enumerate}
+
+\solution 
+\begin{enumerate}[label = {(\alph*)}]
+    \item The Lagrangian density can be written as
+    \begin{equation}\label{equ:cp2:l_den}
+        \mathcal{L} = \frac{1}{2} \left(\partial_\mu A_\nu\right)^2 - \frac{1}{2}\partial_\mu A_\nu \partial^\nu A^\mu
+    \end{equation}
+    substitute \eqref{equ:cp2:l_den} into Eular-Lagrange equation
+    \begin{equation}\label{equ:eular_lagrangian_a}
+        \pd{\mathcal{L}}{A_\mu} = \partial_\nu \left(\pd{\mathcal{L}}{(\partial_\nu A_\mu)}\right)
+    \end{equation}
+    The LHS of \eqref{equ:eular_lagrangian_a} is zero, while the derivative in the bracket of RHS becomes
+    \begin{align*}
+        \pd{\mathcal{L}}{(\partial_\nu A^\mu)} 
+        & = -\frac{1}{2} F^{\alpha\beta} \left(\delta^\nu_\alpha \delta^\mu_\beta - \delta^\nu_\beta \delta^\mu_\alpha\right)\\
+        & = -F^{\nu\mu}
+    \end{align*}
+    So the equation of motion is
+    \begin{equation}\label{equ:cp2:f_maxwell}
+        \partial_\nu F^{\nu\mu} = 0
+    \end{equation}
+    For $\mu = 0$, \eqref{equ:cp2:f_maxwell} yields:
+    \begin{equation*}
+        \partial_\nu F^{\nu 0} = \partial_i E^i = 0
+    \end{equation*}
+    which is nothing but $\nabla\cdot\vec{E} = 0$. For $\mu = i$, \eqref{equ:cp2:f_maxwell} becomes
+    \begin{align*}
+        0 = \partial_\nu F^{\nu i} 
+        & = \partial_0 F^{0i} + \partial_j F^{ji}\\
+        & = -\pd{E^i}{t} + \epsilon_{ijk}\partial_j B^k
+    \end{align*}
+    written in vector form, this is just
+    \begin{equation*}
+        \nabla\times\vec{B} = \pd{\vec{E}}{t}
+    \end{equation*}
+    \item Consider an infinitesimal translation $x^\mu \to x^\mu + \epsilon^\mu$, the Neother current 
+    is 
+    \begin{equation}\label{equ:cp2:a_neother}
+        T^{\mu\nu} = \pd{\mathcal{L}}{(\partial_\mu A_\lambda)} \partial^\nu A_\lambda - \mathcal{L} g^{\mu\nu}
+    \end{equation}
+    Substitute \eqref{equ:eular_lagrangian_a} into \eqref{equ:cp2:a_neother}, we get
+    \begin{equation}
+        T^{\mu\nu} = -F^{\mu\lambda} \partial^\nu A_\lambda + \frac{1}{4} (F_{\alpha\beta})^2 g^{\mu\nu}
+    \end{equation}
+    so that
+    \begin{align*}
+        \widehat{T}^{\mu\nu} 
+        & = T^{\mu\nu} + \partial_\lambda F^{\mu\lambda} A^\nu + F^{\mu\lambda} \partial_\lambda A^\nu \\
+        & = F^{\mu\lambda} F_\lambda{}^\nu + \frac{1}{4}(F_{\alpha\beta})^2 g^{\mu\nu}
+    \end{align*}
+    where we have used \eqref{equ:cp2:f_maxwell} in the second step. Now the energy and momentum density 
+    can be read as
+    \begin{equation*}
+        \mathcal{E} = T^{00} = F^{0i}F_i{}^0 + \frac{1}{2}(B^2 - E^2) = \frac{1}{2} (B^2 + E^2)
+    \end{equation*}
+    \begin{equation*}
+        S^i = T^{i0} = F^{0j}F_j{}^i = E^j B^k \epsilon_{jki}
+    \end{equation*}
+    that is
+    \begin{equation*}
+        \vec{S} = \vec{E} \times \vec{B}
+    \end{equation*}
+\end{enumerate}
+
+\problem \textbf{The complex scalar field.} Consider the field theory of a complex-valued scalar field obeying 
+the klein-Gordon equation. The action of the theory is
+\begin{equation}\label{equ:cp2:s_csf}
+    S = \int \dd^4x \left(\partial_\mu \phi^\ast \partial^\mu \phi - m^2 \phi^\ast \phi\right)
+\end{equation}
+It is easiest to analyse this theory by considering $\phi(x)$ and $\phi^\ast(x)$, rather than the real and imaginery
+parts of $\phi(x)$, as the basic dynamic varaibles.
+\begin{enumerate}[label = {(\alph*)}, ref = {(\alph*)}]
+    \item Find the conjugate momenta to $\phi(x)$ and $\phi^\ast(x)$ and the canonical commutation relations. Show 
+    that the Hamiltonian is
+    \begin{equation}\label{equ:cp2:h_csf}
+        H = \int \dd^3x \left(\pi^\ast\pi + \nabla\phi^\ast \cdot \nabla\phi + m^2 \phi^\ast\phi\right)
+    \end{equation}
+    Compute the Heisenburg equation of motion for $\phi(x)$ and show that it is indeed the Klein-Gordon equation.
+    
+    \item Diagonize \textit{H} by introducing creation and annihilation operators. Show that the theory contains two 
+    sets of particles of mass \textit{m}.
+    
+    \item \label{ex:cp2:charge_1} Rewrite the conserved charge
+    \begin{equation}\label{equ:cp2:charge}
+        Q = \int \dd^3x \frac{i}{2} \left(\phi^\ast \pi^\ast - \pi\phi\right)
+    \end{equation}
+    in terms of creation and annihilation operators, and evaluate the charge of the particles of each type.
+    
+    \item Consider the case of two complex Klein-Gordon fields with the same mass. Label the fields as $\phi_a(x)$,
+    where $a = 1,2$. Show that there are now four conserved charges, one given by the generization of part \ref{ex:cp2:charge_1}, 
+    and the other three given by
+    \begin{equation}\label{equ:cp2:charge_2}
+        Q^i = \int \dd^3x \frac{i}{2} (\phi^\ast_a (\sigma^i)_{ab} \pi^\ast_b - \pi_a (\sigma^i)_{ab} \phi_b)
+    \end{equation}
+    where $\sigma^i$ are the Pauli sigma matrices. Show that these three charges have the commutation relations of 
+    angular momentum (\textit{SU}(2)). Generalize these results to the case of \textit{n} identical complex scalar 
+    fields.
+\end{enumerate}
+
+\solution
+\begin{enumerate}[label = {(\alph*)}]
+    \item The conjugate momenta are
+    \begin{subequations}\label{equ:cp2:csf_p}
+        \begin{align}
+            \pi & = \pd{\mathcal{L}}{\dot{\phi}} = \dot{\phi}^\ast \\
+            \pi^\ast & = \pd{\mathcal{L}}{\dot{\phi}^\ast} = \dot{\phi}
+        \end{align}
+    \end{subequations}
+    $\pi(x)$ and $\phi(x)$ should satisfy the canonical commutation relations:
+    \begin{subequations}\label{equ:cp2:csf_comm}
+        \begin{equation}
+            [\phi(t, \vec{x}), \phi(t, \vec{y})] = [\phi(t, \vec{x}), \phi^\ast(t, \vec{y})] = 0
+        \end{equation}
+        \begin{equation}
+            [\pi(t, \vec{x}), \pi(t, \vec{y})] = [\pi(t, \vec{x}), \pi^\ast(t, \vec{y})] = 0
+        \end{equation}
+        \begin{equation}
+            [\pi(t, \vec{x}), \phi^\ast(t, \vec{y})] = [\pi^\ast(t, \vec{x}), \phi(t, \vec{y})] = 0
+        \end{equation}
+        \begin{equation}
+            [\phi(t, \vec{x}), \pi(t, \vec{y})] = [\phi^\ast(t, \vec{x}), \pi^\ast(t, \vec{y})] = i\delta^3(\vec{x} - \vec{y})
+        \end{equation}
+    \end{subequations}
+    The Hamiltonian is 
+    \begin{align}\label{equ:cp2:csf_hami}
+        H & = \int \dd^3x (\pi\phi + \pi^\ast\phi^\ast) - L \nonumber\\
+        & = \int \dd^3x \left(\pi^\ast\pi + \nabla\phi^\ast \cdot \nabla\phi + m^2 \phi^\ast\phi\right)
+    \end{align}
+    Heisenburg equation for $\phi(x)$ is simply
+    \begin{equation}\label{equ:cp2:Heisenburg_eq_phi}
+        i\dot{\phi} = [\phi, H] = i\pi^\ast
+    \end{equation}
+    while for $\pi(x)$ is
+    \begin{align}\label{equ:cp2:Heisenburg_eq_pi}
+        i\dot{\pi}(x) = [\pi(x), H(t)] 
+        & = \left[\pi(x), \int \dd^3y (\partial_i \phi^\ast(y) \partial_i\phi(y) + m^2 \phi^\ast(y)\phi(y))\right]\nonumber\\
+        & = \left[\pi(x), \int \dd^3y \phi(y)(-\nabla^2 + m^2)\phi^\ast(y)\right]\nonumber\\
+        & = i(\nabla^2 - m^2) \phi^\ast(x)
+    \end{align}
+    where $x^0 = y^0 = t$, and we have integrated by parts at second step. Combining \eqref{equ:cp2:Heisenburg_eq_phi} 
+    and \eqref{equ:cp2:Heisenburg_eq_pi} we obtain the equation of motion
+    \begin{equation}\label{equ:cp2:csf_equation_of_motion}
+        \ddot{\phi} = \dot{\pi}^\ast = (\nabla^2 - m^2)\phi
+    \end{equation}
+    which is nothing but the Klein-Gordon equation $(\Box + m^2)\phi = 0$.
+
+    \item $\phi(x)$ can be expanded in terms of plain waves as
+    \begin{equation}\label{equ:cp2:phi_expand}
+        \phi(x) = \sum_k \left(a_k \varphi_k + b^\dagger_k \varphi^\ast_k \right)
+    \end{equation}
+    where $a_k$ and $b_k$ are annihilation operators, and the plain wave function $\varphi_k(x)$ is 
+    \begin{equation}\label{equ:cp2:plain_w}
+        \varphi_k(t, \vec{x}) = \frac{1}{\sqrt{2V\omega_k}}e^{-i\omega_kt + i\vec{k}\cdot\vec{x}}
+    \end{equation}
+    where $\omega_k = \sqrt{k^2 + m^2}$. Define inner product $\langle\cdot,\cdot\rangle$ as follow
+    \begin{equation}\label{equ:cp2:inner_prod}
+        \langle f, g \rangle \equiv i \int \dd^3x (f^\ast\dot{g} - \dot{f}^\ast g)
+    \end{equation}
+    so the inner products of the plain wave functions are
+    \begin{align*}
+        \langle \varphi_k, \varphi_{k^\prime} \rangle & = \delta_{kk^\prime}\\
+        \langle \varphi^\ast_k, \varphi^\ast_{k^\prime} \rangle & = -\delta_{kk^\prime}\\
+        \langle \varphi_k, \varphi^\ast_{k^\prime} \rangle & = 0
+    \end{align*}
+    Notice that the second slot of the inner product is linear, while the first slot is antilinear. 
+    Then the operators $a_k$ and $b_k$ can be expressed as
+    \begin{subequations}\label{equ:cp2:csf_optr_a_b}
+        \begin{align}
+            a_k & = \langle \varphi_k, \phi \rangle = \int \dd^3x \, \varphi^\ast_k \left(\omega_k\phi + i\pi^\ast\right)\\
+            b_k & = -\langle \varphi^\ast_k, \phi \rangle^\ast = \int \dd^3x \, \varphi^\ast_k \left(\omega_k\phi^\ast + i\pi\right)
+        \end{align}
+    \end{subequations}
+    using \eqref{equ:cp2:csf_comm}, we get the commutation relations for operators $a_k$ and $b_k$:
+    \begin{subequations}\label{equ:cp2:csf_a_b_com}
+        \begin{equation}
+            [a_k,a_{k^\prime}] = [b_k, b_{k^\prime}] = 0
+        \end{equation}
+        \begin{equation}
+            [a_k,b_{k^\prime}] = [a_k, b_{k^\prime}^\dagger] = 0
+        \end{equation}
+        \begin{equation}
+            [a_k, a_{k^\prime}^\dagger] = [b_k, b_{k^\prime}^\dagger] = \delta_{kk^\prime}
+        \end{equation}
+    \end{subequations}
+    substitute \eqref{equ:cp2:phi_expand} into \eqref{equ:cp2:csf_hami}, and using \eqref{equ:cp2:csf_a_b_com}, we get the 
+    Hamiltonian written in terms of creation and annihilation operators
+    \begin{align}\label{equ:cp2:csf_hami_diag}
+        H & = \sum_{k, k^\prime}\left(\omega_k\omega_{k^\prime} + \vec{k}\cdot\vec{k}^\prime + m^2\right)
+        \int \dd^3x \, \left(a^\dagger_k\varphi^\ast_k - b_k\varphi_k\right)
+        \left(a_{k^\prime}\varphi_{k^\prime} - b^\dagger_{k^\prime}\varphi^\ast_{k^\prime}\right)\nonumber\\
+        & = \sum_{k, k^\prime}\left(\omega_k\omega_{k^\prime} + \vec{k}\cdot\vec{k}^\prime + m^2\right)
+        \int \dd^3x \, \left(a^\dagger_k a_{k^\prime} \varphi^\ast_k \varphi_{k^\prime} + b_k b^\dagger_{k^\prime} \varphi_k \varphi^\ast_{k^\prime}\right)\nonumber\\
+        & = \sum_k \omega_k \left(a^\dagger_k a_k + b^\dagger_k b_k + 1\right)
+    \end{align}
+    so this theory contains two sets of particles with mass \textit{m}, created by $a^\dagger_k$ and $b^\dagger_k$, respectively.
+    Notice that the energy of ground state is infinity, but it's irrelavent, since we only concern energy differences.
+
+    \item Substitute \eqref{equ:cp2:phi_expand} into \eqref{equ:cp2:charge}, we get
+    \begin{align}\label{equ:cp2:charge_diag}
+        Q & = \frac{i}{2} \left[\sum_{k, k^\prime} (-i\omega_{k^\prime})
+        \int \dd^3x \, \left(a^\dagger_k\varphi^\ast_k + b_k\varphi_k\right)
+        \left(a_{k^\prime} \varphi_{k^\prime} - b^\dagger_{k^\prime}\varphi^\ast_{k^\prime}\right) - h.c.\right]\nonumber\\
+        & = \frac{i}{2} \left[-\frac{i}{2} \sum_k \left(a^\dagger_k a_k - b_k b^\dagger_k\right) - h.c.\right]\nonumber\\
+        & = \frac{1}{2} \sum_k \left(a^\dagger_k a_k - b^\dagger_k b_k\right)
+    \end{align}
+    Where we have ignored an infinite constant in the last step. So the two sets of particles created by $a^\dagger_k$ and $b^\dagger_k$ have charges
+    $\frac{1}{2}$ and $-\frac{1}{2}$, respectively.
+
+    \item We first consider the general case of \textit{n} fields, the case of two fields can be obtained by setting $n = 2$. Let the \textit{n} fields to be 
+    $\phi_a(x)$, where $a = 1, 2, \cdots, n$, define
+    \begin{equation*}
+        \phi = \begin{pmatrix}
+            \phi_1\\
+            \phi_2\\
+            \vdots\\
+            \phi_n
+        \end{pmatrix},
+        \pi = \left(\pi_1, \pi_2, \cdots, \pi_n\right)
+    \end{equation*}
+    The Lagrangian can be written as 
+    \begin{equation}\label{equ:cp2:csf_nf_lag}
+        \mathcal{L} = \partial_\mu \phi^\dagger \partial^\mu \phi - m^2 \phi^\dagger \phi
+    \end{equation}
+    It is invariant under global transformation
+    \begin{equation*}
+        \phi \to A \phi
+    \end{equation*}
+    where $A \in U(n)$ is an $n \times n$ matrix. Since $U(n) = SU(n) \otimes U(1)$, the infinitesimal transformation can be expressed as
+    \begin{equation*}
+        \phi \to (I - i\alpha - i t^i \theta^i)\phi
+    \end{equation*}
+    where $\alpha$ and $\theta^i$ are infinitesimal parameters, correspond to $U(1)$ and $SU(n)$ respectively, 
+    matrices $t^i$ are generators of $SU(n)$, $i = 1, 2, \cdots, (n^2 - 1)$. By Neother's theorem, 
+    $\alpha$ yields one conserved charge:
+    \begin{align*}
+        q & = \frac{1}{\alpha}\int \dd^3x \, \left(\pd{\mathcal{L}}{(\partial_0\phi)}(-i\alpha\phi) + (i\alpha\phi^\dagger)\pd{\mathcal{L}}{(\partial_0\phi^\dagger)}\right)\\
+        & = \int \dd^3x \, \left(\phi^\dagger \pi^\dagger - \pi\phi\right)
+    \end{align*}
+    the $SU(n)$ transformation yields $n^2 - 1$ charges:
+    \begin{align*}
+        Q^i & = \frac{1}{\theta^i}\int \dd^3x \, \left(\pd{\mathcal{L}}{(\partial_0\phi)} (-it^i\phi) + (it^i \phi^\dagger)\pd{\mathcal{L}}{(\partial_0\phi)} \right)\\
+        & = \int \dd^3x \, \left(\phi^\dagger t^i \pi^\dagger - \pi t^i \phi\right)
+    \end{align*}
+    There are totally $n^2$ charges. In the case $n = 2$, there are 4 charges, and $t^i$ become the Pauli sigma matrices.
+\end{enumerate}
+
+\problem Evaluate the function
+\begin{equation*}
+    \langle 0 | \phi(x) \phi(y) |0 \rangle = D(x - y) = \int \frac{\dd^3p}{(2\pi)^3} \frac{1}{2E_\mathbf{p}} e^{-ip \cdot (x - y)}
+\end{equation*}
+for $(x - y)$ spacelike so that $(x - y)^2 = -r^2$, explicitly in terms of Bessel functions.
+
+\solution
+\begin{align*}
+    D(x - y) & = \int \frac{\dd^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} e^{i\vec{p}\cdot(\vec{x} - \vec{y})}\\
+    & = \frac{1}{4\pi^2} \int_0^{+\infty} \frac{p^2}{2E_{\mathbf{p}}} \dd p \int_{-1}^1 d(\cos\theta) e^{ipr\cos\theta}\\
+    & = \frac{1}{8\pi^2ir} \int_0^{+\infty} \frac{p}{E_{\mathbf{p}}} \left(e^{ipr} - e^{-ipr}\right)\\
+    & = \frac{1}{8\pi^2ir} \int_{-\infty}^{+\infty} \frac{p}{\sqrt{p^2 + m^2}} e^{ipr} \dd p\\
+    & = \frac{1}{8\pi^2ir} \left[\int_{+im}^{+i\infty} \frac{p}{i\sqrt{-p^2 - m^2}} e^{ipr} \dd p + \int_{+i\infty}^{im} \frac{p}{-i\sqrt{-p^2 - m^2}} e^{ipr} \dd p \right]\\
+    & = \frac{1}{4\pi^2r} \int_m^{+\infty} \frac{x}{\sqrt{x^2 - m^2}} e^{-rx} \dd x\\
+    & = \frac{1}{4\pi^2r} \int_0^{+\infty} e^{-r\sqrt{p^2 + m^2}} \dd p\\
+    & = \frac{m}{4\pi^2r} \int_0^{+\infty} e^{-mr\cosh t} \cosh t \dd t\\
+    & = \frac{m}{4\pi^2r} K_1(mr)
+\end{align*}
+where 
+\begin{equation*}
+    K_\alpha(x) = \int_0^{+\infty} e^{-x\cosh t} \cosh{\alpha t} \dd t, \quad Re(x) > 0
+\end{equation*}
+is the modified Bessel function.
