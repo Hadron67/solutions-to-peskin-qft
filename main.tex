@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{latexsym}
+\usepackage{slashed}
 
 % math
 \newcommand{\dd}{\mathrm{d}}
@@ -13,6 +14,13 @@
 \newcounter{problemCounter}[section]
 \newcommand{\problem}{\stepcounter{problemCounter}\noindent\textbf{\arabic{section}.\arabic{problemCounter}} \quad}
 \newcommand{\solution}{\noindent\textbf{Solutions for \arabic{section}.\arabic{problemCounter}}}
+\newenvironment{problembody}
+{\begin{enumerate}[label = (\alph*), ref = (\alph*)]}
+{\end{enumerate}}
+
+\newcommand{\needverify}{\textsuperscript{[NEED VERIFY]}}
+
+\setlength{\parskip}{6pt}
 
 % chapter 1 has no problem, begin with chapter 2
 \setcounter{section}{1}

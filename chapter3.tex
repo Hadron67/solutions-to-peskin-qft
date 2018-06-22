@@ -5,16 +5,16 @@
 \begin{equation*}
     [J^{\mu\nu}, J^{\rho\sigma}] = i(g^{\nu\rho}J^{\mu\sigma} - g^{\mu\rho}J^{\nu\sigma} - g^{\nu\sigma}J^{\mu\rho} + g^{\mu\sigma}J^{\nu\rho})
 \end{equation*}
-\begin{enumerate}[label = {(\alph*)}, ref = {(\alph*)}]
+\begin{problembody}
     \item \label{ex:cp3:lor_gen_com} 
     Define the generators of rotations and boosts as
     \begin{equation*}
-        L^i = \frac{1}{2}\epsilon^{ijk} L^k, \quad K^i = J^{0i}
+        L^i = \frac{1}{2}\epsilon^{ijk} J^{jk}, \quad K^i = J^{0i}
     \end{equation*}
     where $i, j, k = 1, 2, 3$. An infinitesimal Lorentz transformation can then be written
-    \begin{equation*}
+    \begin{equation}\label{equ:cp2:infsm_lor_trans}
         \Phi \to \left(1 - i\vec{\theta}\cdot\vec{L} - i\vec{\beta}\cdot\vec{K}\right)\Phi
-    \end{equation*}
+    \end{equation}
     Write the commutation relations of these operators explicitly. (For example, $[L^i, L^j] = i\epsilon^{ijk}L^k$)
     Show that the combinations 
     \begin{equation*}
@@ -33,9 +33,9 @@
     \item The identity $\vec{\sigma}^T = -\sigma^2 \vec{\sigma}\sigma^2$ allows us to rewrite the $\psi_L$ transformation in the 
     unitarily equivalent form
     \begin{equation*}
-        \psi^\prime \to \psi^\prime \left(1 + i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} + \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right),
+        \psi' \to \psi' \left(1 + i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} + \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right),
     \end{equation*}
-    where $\psi^\prime = \psi_L^T \sigma^2$. Using this law, we can represent the object that transforms as $(\frac{1}{2}, \frac{1}{2})$
+    where $\psi' = \psi_L^T \sigma^2$. Using this law, we can represent the object that transforms as $(\frac{1}{2}, \frac{1}{2})$
     as a $2 \times 2$ matrix that has the $\psi_R$ transformation law on the left and, simutaneously, the transposed $\psi_L$ transformation
     on the right. Parametrize this matrix as
     \begin{equation*}
@@ -45,9 +45,483 @@
         \end{pmatrix}.
     \end{equation*}
     Show that the object $V^\mu$ transformations as a 4-vector.
-\end{enumerate}
+\end{problembody}
 
 \solution
-\begin{enumerate}[label = {(\alph*)}]
-    \item 
-\end{enumerate}
+\begin{problembody}
+    \item There are 3 sets of commutators. Commutators of the rotation generators are
+    \begin{align*}
+        [L^i, L^j] & = \frac{1}{4} \epsilon^{ikl} \epsilon^{jmn} [J^{kl}, J^{mn}]\\
+        & = \frac{i}{4} \epsilon^{ikl} \epsilon^{jmn} \left(g^{lm}J^{kn} + g^{kn}J^{lm} - g^{km}J^{ln} - g^{ln}J^{km}\right)\\
+        & = \frac{i}{4} \left(-\epsilon^{ikm}\epsilon^{jmn}J^{kn} - \epsilon^{ikl}\epsilon^{jmk}J^{lm} 
+        + \epsilon^{ikl}\epsilon^{jkn}J^{ln} + \epsilon^{ikl}\epsilon^{jml}J^{km}\right)\\
+        & = i J^{ij}\\
+        & = i \epsilon^{ijk} L^k
+    \end{align*}
+    Commutators of the boost generators are
+    \begin{align*}
+        [K^i, K^j] & = [J^{0i}, J^{0j}]\\
+        & = i\left(g^{i0}J^{0j} + g^{0j}J^{i0} - g^{00}J^{ij} - g^{ij}J^{00}\right)\\
+        & = -iJ^{ij}\\
+        & = -i \epsilon^{ijk} L^k
+    \end{align*}
+    Commutators between rotation generators and boost generators are
+    \begin{align*}
+        [L^i, K^j] & = \frac{1}{2} \epsilon^{ikl} [J^{kl}, J^{0j}]\\
+        & = \frac{i}{2} \epsilon^{ikl} \left(g^{l0}J^{kj} + g^{kj}J^{l0} - g^{k0}J^{lj} - g^{lj}J^{k0}\right)\\
+        & = i\epsilon^{ijk} J^{0k}\\
+        & = i\epsilon^{ijk} K^j
+    \end{align*}
+    And the commutation relations of $\vec{J}_\pm$ are
+    \begin{align*}
+        [J^i_\pm, J^j_\pm] & = \frac{1}{4}[L^i \pm iK^i, L^j \pm iK^j]\\
+        & = \frac{1}{4} \left(i\epsilon^{ijk}L^k \mp 2i\epsilon^{ijk}K^k + i\epsilon^{ijk}L^k\right)\\
+        & = \frac{i}{2} \epsilon^{ijk} \left(L^k \pm iK^k\right)\\
+        & = i\epsilon^{ijk} J^k_\pm
+    \end{align*}
+    that is, $\vec{J}_\pm$ satisfy the commutation relations of angular momentum. Further more, the commutators between 
+    $\vec{J}_+$ and $\vec{J}_-$ are
+    \begin{align*}
+        [J^i_+, J^j_-] & = \frac{1}{4} [L^i + iK^i, L^j - iK^j]\\
+        & = \frac{1}{4} \left(i\epsilon^{ijk}L^k + \epsilon^{ijk}K^k - \epsilon^{ijk}K^k -i\epsilon^{ijk}L^k\right)\\
+        & = 0
+    \end{align*}
+    So $\vec{J}_+$ and $\vec{J}_-$ commutes with each other.
+
+    \item The infinitesimal transformation \eqref{equ:cp2:infsm_lor_trans} can now be written, in terms of $\vec{J}_\pm$, as
+    \begin{equation}\label{equ:cp3:lor_uni_trans}
+        \Phi \to \left[1 - i\left(\vec{\theta} - i\vec{\beta}\right)\cdot\vec{J}_+ - i\left(\vec{\theta} + i\vec{\beta}\right)\cdot\vec{J}_-\right] \Phi
+    \end{equation}
+    for $(\frac{1}{2}, 0)$, make substitution
+    \begin{equation*}
+        \vec{J}_+ \to \frac{\vec{\sigma}}{2}, \quad \vec{J}_- \to \vec{0}
+    \end{equation*}
+    so that the transformation is
+    \begin{equation}\label{equ:cp3:spinor_trans_L}
+        \psi \to \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} - \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right)\psi
+    \end{equation}
+    which is the same as the transformation of $\psi_L$ in (3.37). Similarly, for $(0, \frac{1}{2})$, the transformation is
+    \begin{equation*}
+        \psi \to \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} + \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right) \psi
+    \end{equation*}
+    which is the transformation of $\psi_R$.
+
+    \item The matrix can be written as $V^0 + \vec{\sigma}\cdot\vec{V}$. Let $\vec{\alpha} = \vec{\theta} - i\vec{\beta}$,
+    Then the (infinitesimal) transformation for the matrix is
+    \begin{align*}
+        V^0 + \vec{\sigma}\cdot\vec{V} & \to 
+        \left(1 - i\vec{\alpha}^\ast\cdot\frac{\vec{\sigma}}{2}\right)
+        \left(V^0 + \vec{\sigma}\cdot\vec{V}\right)
+        \left(1 + i\vec{\alpha}\cdot\frac{\vec{\sigma}}{2}\right)\\
+        & = \left(1 + \vec{\beta}\cdot\vec{\sigma}\right) V^0 + \vec{\sigma}\cdot\vec{V} + \vec{\beta}\cdot\vec{V} + \left(\vec{\theta}\times\vec{V}\right)\cdot\vec{\sigma}\\
+        & = V^0 + \vec{\beta}\cdot\vec{V} + \left(\vec{V} + \vec{\beta}V^0 + \vec{\theta}\times\vec{V}\right)\cdot\vec{\sigma}
+    \end{align*}
+    Thus, the infinitesimal transformation of $V^\mu$ is
+    \begin{subequations}\label{equ:cp3:v_trans}
+        \begin{align}
+            V^0 & \to V^0 + \vec{\beta}\cdot\vec{V}\\
+            \vec{V} & \to \vec{V} + \vec{\beta}V^0 + \vec{\theta}\times\vec{V}
+        \end{align}
+    \end{subequations}
+    This is exactly the transformation law for 4-vectors. To make it more obvious, let
+    \begin{subequations}\label{equ:cp3:omega_def}
+        \begin{align}
+            \omega_{0i} & = \beta_i \\
+            \omega_{ij} & = \epsilon_{ijk} \theta^k
+        \end{align}
+    \end{subequations}
+    So that \eqref{equ:cp3:v_trans} can be written in 4-vector form as
+    \begin{equation*}
+        V^\mu \to V^\mu + \omega^\mu{}_\nu V^\nu
+    \end{equation*}
+    Which is the same as (3.19) by setting $(\mathcal{J}^{\mu\nu})_{\alpha\beta} = 2i \delta^{[\mu}_\alpha \delta^{\nu]}_\beta$.
+\end{problembody}
+
+\problem Derive the \textit{Gordon identity},
+\begin{equation}\label{equ:cp3:gordon_identity}
+    \bar{u}(p')\gamma^\mu u(p) = \bar{u}(p') \left[\frac{p'^{\mu} + p^\mu}{2m} + \frac{i\sigma^{\mu\nu}q_\nu}{2m}\right] u(p)
+\end{equation}
+where $q = (p' - p)$. We will put this formula to use in Chapter 6.
+
+\solution
+\begin{align*}
+    \bar{u}(p')\frac{i\sigma^{\mu\nu}q_\nu}{2m} u(p) 
+    & = -\frac{1}{4m} \bar{u}(p') \left[\gamma^\mu(\slashed{p}' - \slashed{p}) - (\slashed{p}' - \slashed p) \gamma^\mu \right] u(p)\\
+    & = -\frac{1}{4m} \bar{u}(p') \left[-2\slashed{p}'\gamma^\mu - 2\gamma^\mu\slashed{p} + 2(p'^\mu + p^\mu) \right] u(p)\\
+    & = \bar{u}(p')\gamma^\mu u(p) - \bar{u}(p')\frac{p'^\mu + p^\mu}{2m}u(p)
+\end{align*}
+Moving the second term of RHS to LHS, we obtain \eqref{equ:cp3:gordon_identity}.
+
+\problem \textbf{Spinor products.} (This problem, together with Problems 5.3 and 5.6, introduces an efficient computational method for
+processes involving massless particles.) Let $k_0^\mu$, $k_1^\mu$ be fixed 4-vectors satisfying $k_0^2 = 0, k_1^2 = -1, k_0\cdot k_1 = 0$.
+Define basic spinors in the following way: Let $u_{L0}$ be the left-handed spinor for a fermion with momentum $k_0$. Let $u_{R0} = \slashed{k}_1 u_{L0}$.
+Then, for any $p$ such that $p$ is lightlike ($p^2 = 0$), define
+\begin{equation*}
+    u_L(p) = \frac{1}{\sqrt{2p\cdot k_0}} \slashed{p} u_{R0}, \qquad u_R(p) = \frac{1}{\sqrt{2p\cdot k_0}}  \slashed{p} u_{L0}
+\end{equation*}
+This set of convensions define defines the phase of spinors unambiguously (except when $p$ is paralle to $k_0$).
+\begin{problembody}
+    \item Show that $\slashed{k}_0 u_{R0} = 0$. Show that, for any lightlike $p$, $\slashed{p}u_L(p) = \slashed{p}u_R(p) = 0$.
+    \item \label{ex:cp3:sp_choices} For choices $k_0 = (E, 0, 0, -E)$, $k_1 = (0, 1, 0, 0)$, construct $u_{L0}$, $u_{R0}$, $u_L(p)$, and $u_R(p)$ explicitly.
+    \item Define the \textit{spinor products} $s(p_1, p_2)$ and $t(p_1, p_2)$, for $p_1$, $p_2$ lightlike, by
+    \begin{equation*}
+        s(p_1, p_2) = \bar{u}_R(p_1) u_L(p_2), \qquad t(p_1, p_2) = \bar{u}_L(p_1) u_R(p_2)
+    \end{equation*}
+    Using the explicit forms for the $u_\lambda$ given in part \ref{ex:cp3:sp_choices}, compute the spinor products explicitly and show that
+    $t(p_1, p_2) = (s(p_2, p_1))^\ast$ and $s(p_1, p_2) = -s(p_2, p_1)$. In addition, show that
+    \begin{equation*}
+        \left| s(p_1, p_2) \right|^2 = 2p_1 \cdot p_2
+    \end{equation*}
+    Thus the spinor products are the square roots of 4-vector dot products.
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item Since $\slashed{k}_0 u_{L0} = 0$, so that
+    \begin{equation*}
+        \slashed{k}_0 u_{R0} = \slashed{k}_0 \slashed{k}_1 u_{L0} = \left(2k_0 \cdot k_1 - \slashed{k}_1 \slashed{k}_0\right) u_{L0} = 0
+    \end{equation*}
+    The next two equations are obvious, since $\slashed{p}\slashed{p} = p^2 = 0$.
+
+    \item A left-handed massless particle with the given momentum $k_0$ has $\xi = (1 \, 0)^T$. Using (3.50) we get
+    \begin{equation*}
+        u_{L0}(k_0) = \sqrt{2E} \begin{pmatrix}
+            1\\ 0\\ 0\\ 0
+        \end{pmatrix}
+    \end{equation*}
+    and
+    \begin{equation*}
+        u_{R0}(k_0) = \slashed{k}_1 u_{L0}(k_0) = \begin{pmatrix}
+            0 & -\sigma_x \\
+            \sigma_x & 0
+        \end{pmatrix} u_{L0}(k_0) = \sqrt{2E}\begin{pmatrix}
+            0 \\ 0 \\ 0 \\ 1
+        \end{pmatrix}
+    \end{equation*}
+    \begin{equation*}
+        u_L(p) = \frac{1}{\sqrt{E_p + p_z}} \begin{pmatrix}
+            0 & E_p - \vec{p}\cdot\vec{\sigma} \\
+            E_p + \vec{p}\cdot\vec{\sigma} & 0
+        \end{pmatrix} \begin{pmatrix}
+            0 \\
+            \begin{pmatrix}
+                0 \\ 1
+            \end{pmatrix}
+        \end{pmatrix} = \frac{1}{\sqrt{E_p + p_z}} \begin{pmatrix}
+            ip_y - p_x \\
+            E_p + p_z \\
+            0 \\
+            0
+        \end{pmatrix}
+    \end{equation*}
+    \begin{equation*}
+        u_R(p) = \frac{1}{\sqrt{E_p + p_z}} \begin{pmatrix}
+            0 & E_p - \vec{p}\cdot\vec{\sigma} \\
+            E_p + \vec{p}\cdot\vec{\sigma} & 0
+        \end{pmatrix} \begin{pmatrix}
+            \begin{pmatrix}
+                1 \\ 0
+            \end{pmatrix} \\
+            0
+        \end{pmatrix} = \frac{1}{\sqrt{E_p + p_z}} \begin{pmatrix}
+            0 \\
+            0 \\
+            E_p + p_z \\
+            p_x + ip_y
+        \end{pmatrix}
+    \end{equation*}
+    where $E_p = |\vec{p}|$.
+
+    \item By defination,
+    \begin{equation*}
+        s(p_1, p_2) = \frac{
+            E_{p1}(ip_{2y} - p_{2x}) + E_{p2}(p_{1x} - ip_{1y}) + ip_{1z}p_{2y}
+         - p_{1z}p_{2x} + p_{1x}p_{2z} - ip_{1y}p_{2z}
+        } {\sqrt{(E_{p1} + p_{1z})(E_{p2} + p_{2z})}}
+    \end{equation*}
+    \begin{equation*}
+        t(p_1, p_2) = \frac{
+            E_{p1}(p_{2x} + ip_{2y}) - E_{p2}(p_{1x} + ip_{1y}) + p_{1z}p_{2x}
+         + ip_{1z}p_{2y} - p_{1x}p_{2z} - ip_{1y}p_{2z}
+        } {\sqrt{(E_{p1} + p_{1z})(E_{p2} + p_{2z})}}
+    \end{equation*}
+    so that
+    \begin{equation*}
+        s(p_1, p_2) = (t(p_2, p_1))^\ast, \qquad s(p_1, p_2) = -s(p_2, p_1)
+    \end{equation*}
+    and 
+    \begin{align*}
+        \left| s(p_1, p_2) \right|^2 & = \frac{
+            \left[(E_{p2} + p_{2z})p_{1x} - (E_{p1} + p_{1z})p_{2x}\right]^2 
+            + \left[(E_{p1} + p_{1z})p_{2y} - (E_{p2} + p_{2z})p_{1y}\right]^2
+        }
+        {(E_{p1} + p_{1z})(E_{p2} + p_{2z})} \\
+        & = (E_{p1} + p_{1z})(E_{p2} - p_{2z}) + (E_{p2} + p_{2z})(E_{p1} - p_{1z}) - 2(p_{1x}p_{2x} + p_{1y}p_{2y}) \\
+        & = 2(E_{p1}E_{p2} - p_{1x}p_{2x} - p_{1y}p_{2y} - p_{1z}p_{2z})\\
+        & = 2 p_1 \cdot p_2
+    \end{align*}
+\end{problembody}
+
+\problem \textbf{Majorana fermion.} Recall from Eq. (3.40) that one can write a relativistic equation for a massless 2-component fermion field 
+that transforms as the upper two components of a Dirac spinor ($\psi_L$). Call such a 2-component field $\chi_a(x)$, $a = 0, 1$.
+\begin{problembody}
+    \item \label{ex:cp3:majorana_eq} Show that it is possible to write an equation for $\chi(x)$ as a massive field in the following way:
+    \begin{equation}\label{equ:cp3:majorana_eq}
+        i\bar{\sigma}\cdot\partial\chi - im\sigma^2\chi^\ast = 0.
+    \end{equation}
+    That is, first, that the equation is relativistically invariant and, second, that it implies the Klein-Gordon equation, $(\partial^2 + m^2)\chi = 0$.
+    This form of the fermion mass is called a Majorana mass term.
+
+    \item \label{ex:cp3:majorana_lag} Does the Majorana equation follow from a Lagrangian? The mass term would seem to be the variation of $(\sigma^2)_{ab} \chi_a^\ast \chi_b^\ast$; 
+    however, since $\sigma^2$ is antisymmetric, this expression would vanish if $\chi(x)$ were an ordinary c-number field. When we go to quantum field theory,
+    we know that $\chi(x)$ will become an anticommuting quantum field. Therefore, it makes sense to develop its classical theory by considering $\chi(x)$ as 
+    a classical anticommuting field, that is, as a field that takes as values \textit{Grassmann numbers} which satisfy
+    \begin{equation*}
+        \alpha \beta = -\beta \alpha \qquad \text{for any} \, \alpha, \beta.
+    \end{equation*}
+    Note that this relation implies that $\alpha^2 = 0$. A Grassmann field $\xi(x)$ can be expanded in a basis of functions as
+    \begin{equation*}
+        \xi(x) = \sum_n \alpha_n \phi_n(x),
+    \end{equation*}
+    where the $\phi_n(x)$ are orthogonal c-number functions and the $\alpha_n$ are a set of independent Grassmann numbers. Define the complex conjugate of a 
+    product of Grassmann numbers to reverse the order:
+    \begin{equation*}
+        (\alpha\beta)^\ast = \beta^\ast \alpha^\ast = -\alpha^\ast \beta^\ast.
+    \end{equation*}
+    This rule imitates the Hermitian conjugate of quantum fields. Show that the classical action,
+    \begin{equation}\label{equ:cp3:majorana_action}
+        S = \int \dd^4x \, \left[\chi^\dagger i\bar{\sigma}\cdot\partial\chi + \frac{im}{2}\left(\chi^T\sigma^2\chi - \chi^\dagger\sigma^2\chi^\ast\right)\right],
+    \end{equation}
+    (where $\chi^\dagger = (\chi^\ast)^T$) is real ($S^\ast = S$), and that varying this $S$ with respect to $\chi$ and $\chi^\ast$ yields the Majorana equation.
+
+    \item \label{ex:cp3:majorana_et_dirac} Let us write a 4-component Dirac field as 
+    \begin{equation*}
+        \psi(x) = \begin{pmatrix}
+            \psi_L \\ \psi_R
+        \end{pmatrix},
+    \end{equation*}
+    and recall that the lower component of $\psi$ transform in a way equivalent by a unitary transformation to the complex conjugate of the representation $\psi_L$. 
+    In this way, we can rewrite the 4-component Dirac field in terms of two 2-component spinors:
+    \begin{equation*}
+        \psi_L(x) = \chi_1(x), \qquad \psi_R(x) = i\sigma^2 \chi^\ast_2(x).
+    \end{equation*}
+    Rewrite the Dirac Lagrangian in terms of $\chi_1$ and $\chi_2$ and note the form of the mass term.
+
+    \item Show that the action of part \ref{ex:cp3:majorana_et_dirac} has a global symmetry. Compute the divergences of the currents
+    \begin{equation*}
+        J^\mu = \chi^\dagger \bar{\sigma}^\mu \chi, \qquad J^\mu = \chi_1^\dagger \bar{\sigma}^\mu \chi_1 - \chi_2^\dagger \bar{\sigma}^\mu \chi_2,
+    \end{equation*}
+    for the theories of parts \ref{ex:cp3:majorana_lag} and \ref{ex:cp3:majorana_et_dirac}, respectively, and relate your results to the symmetries of these theories. 
+    Construct a theory of $N$ free massive 2-component fermion fields with $O(N)$ symmetry (that is, the symmetry of rotations in an N-dimensional space).
+
+    \item Quantize the Majorana theory of parts \ref{ex:cp3:majorana_eq} and \ref{ex:cp3:majorana_lag}. That is, promote $\chi(x)$ to a quantum field satisfying the 
+    canonical anticommutation relation
+    \begin{equation*}
+        \left\{\chi_a(\vec{x}), \chi_b^\dagger(\vec{y})\right\} = \delta_{ab}\delta^{(3)}(\vec{x} - \vec{y}),
+    \end{equation*}
+    construct a Hermitian Hamitonian, and find a representation of the canonical commutation relations that diagonalizes the Hamitonian in terms of a set of creation 
+    and annihilation operators. (Hint: Compare $\chi(x)$ to the top two components of the quantized Dirac field.)
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item Apply an infinitesimal Lorentz transformation $x^\mu \to \Lambda^\mu{}_\nu x^\nu = x^\mu + \omega^\mu{}_\nu x^\nu$, where $\omega_{\mu\nu}$ is defined by \eqref{equ:cp3:omega_def}, then
+    $\chi(x)$ should transform as \eqref{equ:cp3:spinor_trans_L}. Writing the transformation of $\chi(x)$ as $\chi \to \Lambda_{\frac{1}{2}}\chi$, \eqref{equ:cp3:majorana_eq} 
+    becomes
+    \begin{equation*}
+        i\bar{\sigma}^\mu \Lambda_{\frac{1}{2}} (\Lambda^{-1})^\nu{}_\mu \partial_\nu\chi - im\sigma^2\Lambda_{\frac{1}{2}}^\ast \chi^\ast = 0.
+    \end{equation*}
+    Multiplying $\sigma^2(\Lambda_{\frac{1}{2}}^\ast)^{-1}\sigma^2$, it becomes
+    \begin{equation*}
+        i\sigma^2(\Lambda_{\frac{1}{2}}^\ast)^{-1}\sigma^2\bar{\sigma}^\mu\Lambda_{\frac{1}{2}}(\Lambda^{-1})^\nu{}_\mu\partial_\nu\chi - im\sigma^2\chi^\ast = 0.
+    \end{equation*}
+    Thus, if $\Lambda_{\frac{1}{2}}$ satisfies
+    \begin{equation}\label{equ:cp3:rela_cond}
+        \sigma^2(\Lambda_{\frac{1}{2}}^\ast)^{-1}\sigma^2\bar{\sigma}^\mu \Lambda_{\frac{1}{2}} = \Lambda^\mu{}_\nu\bar{\sigma}^\nu,
+    \end{equation}
+    then \eqref{equ:cp3:majorana_eq} is relativistically invariant. In fact, when $\mu = 0$,
+    \begin{align*}
+        \sigma^2(\Lambda_{\frac{1}{2}}^\ast)^{-1}\sigma^2\bar{\sigma}^0 \Lambda_{\frac{1}{2}}
+        & = \sigma^2\left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}^T}{2} + \vec{\beta}\cdot\frac{\vec{\sigma}^T}{2}\right)\sigma^2
+        \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} - \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right) \\
+        & = \left(1 + i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} - \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right) 
+        \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} - \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right) \\
+        & = 1 - \vec{\beta}\cdot\vec{\sigma}\\
+        & = \bar{\sigma}^0 + \omega^0{}_i \bar{\sigma}^i \\
+        & = \Lambda^0{}_\nu \bar{\sigma}^\nu,
+    \end{align*}
+    when $\mu = i$,
+    \begin{align*}
+        \sigma^2(\Lambda_{\frac{1}{2}}^\ast)^{-1}\sigma^2\bar{\sigma}^i \Lambda_{\frac{1}{2}}
+        & = -\left(1 + i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} - \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right)
+        \sigma^i
+        \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} - \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right) \\
+        & = -\left(\sigma^i + i\frac{\theta^j}{2}\left[\sigma^j, \sigma^i\right] - \frac{\beta^j}{2}\left\{\sigma^j, \sigma^i\right\}\right)\\
+        & = -\left(\sigma^i - \beta^i\bar{\sigma}^0 + \epsilon_{ijk}\theta^j\sigma^k\right)\\
+        & = \left(\delta^i_\nu + \omega^i{}_\nu\right) \bar{\sigma}^\nu\\
+        & = \Lambda^i{}_\nu \bar{\sigma}^\nu,
+    \end{align*}
+    so that \eqref{equ:cp3:rela_cond} is satisfied, thus \eqref{equ:cp3:majorana_eq} is relativistically invariant.
+    Next we'll prove that \eqref{equ:cp3:majorana_eq} implies Klein-Gordon equation. Take conjugate of \eqref{equ:cp3:majorana_eq}, we get
+    \begin{equation*}
+        \bar{\sigma}^\ast \cdot \chi^\ast + m\sigma^2\chi = 0.
+    \end{equation*}
+    Substitute $\chi^\ast = \frac{1}{m}\sigma^2\bar{\sigma}\cdot\partial\chi$, the above becomes
+    \begin{equation}\label{equ:cp3:majorana_eq_to_kg}
+        \sigma^2 (\bar{\sigma}^\ast \cdot \partial) \sigma^2 (\bar{\sigma} \cdot \partial) \chi + m^2 \chi = 0.
+    \end{equation}
+    Since 
+    \begin{equation*}
+        \sigma^2 (\bar{\sigma}^\ast \cdot \partial) \sigma^2 (\bar{\sigma} \cdot \partial) = (\sigma\cdot\partial)(\bar{\sigma}\cdot\partial) = \partial^2,
+    \end{equation*}
+    so that \eqref{equ:cp3:majorana_eq_to_kg} becomes the Klein-Gordon equation $(\partial^2 + m^2)\chi = 0$.
+
+    \item Writing the spinor indices explicitly in the action, \eqref{equ:cp3:majorana_action} becomes
+    \begin{equation*}
+        S = \int \dd^4x \, \left[\chi_a^\ast i(\bar{\sigma})_{ab}\cdot\partial\chi_b + \frac{im}{2}\left(\chi_a(\sigma^2)_{ab}\chi_b - \chi_a^\ast (\sigma^2)_{ab}\chi_b^\ast\right)\right].
+    \end{equation*}
+    The conjugate of this action reads
+    \begin{equation*}
+        S^\ast = \int \dd^4x \, \left[\chi_a i(\bar{\sigma})_{ba}\cdot\partial\chi_b^\ast - \frac{im}{2}\left(-\chi_b^\ast (\sigma^2)_{ab}\chi_a^\ast + \chi_b (\sigma^2)_{ab} \chi_a\right)\right],
+    \end{equation*}
+    where we have used $\bar{\sigma}^\ast = \bar{\sigma}^T$, $(\sigma^2)^\ast = -\sigma^2$ and the fact that $\chi$ is Grassmann field. The quadratic terms are unchanged 
+    under this conjugate. Integrate by parts, we can see the kinetic term is also invariant:
+    \begin{equation*}
+        \int \dd^4x \left[\chi_a i(\bar{\sigma})_{ba}\cdot\partial\chi_b^\ast\right] = (\text{surface term}) + \int \dd^4x \, \chi_b^\ast i (\bar{\sigma})_{ba}\cdot\partial\chi_a.
+    \end{equation*}
+    Thus the action is real. Substitute this action into the Euler-Lagrange equation for $\chi^\ast$:
+    \begin{equation*}
+        \pd{\mathcal{L}}{\chi_a^\ast} = \partial_\nu \left(\pd{\mathcal{L}}{(\partial_\nu\chi_a^\ast)}\right),
+    \end{equation*}
+    the RHS vanishes. As for the LHS, notice that $\chi$ is Grassmannian, the derivative of the quadratic term is
+    \begin{equation*}
+        \frac{\partial}{\partial\chi_a^\ast} \left[\chi_b^\ast (\sigma^2)_{bc} \chi_c^\ast\right]
+        = (\sigma^2)_{ab} \chi_b^\ast - \chi_b^\ast(\sigma^2)_{ba}
+        = 2 (\sigma^2)_{ab} \chi_b^\ast.
+    \end{equation*}
+    Thus the LHS yields
+    \begin{equation*}
+        i(\bar{\sigma})_{ab}\cdot\partial\chi_b - im(\sigma^2)_{ab}\chi_b^\ast = 0,
+    \end{equation*}
+    which is \eqref{equ:cp3:majorana_eq} with spinor indices.
+
+    \item The Lagrangian is
+    \begin{align}\label{equ:cp3:dirac_lag}
+        \mathcal{L} = \bar{\psi}\left(i\slashed{\partial} - m\right)\psi 
+        & = \left(-i\chi_2^T\sigma^2, \chi_1^\dagger\right) \begin{pmatrix}
+            -m & i\sigma\cdot\partial \\
+            i\bar{\sigma}\cdot\partial & -m
+        \end{pmatrix} \begin{pmatrix}
+            \chi_1 \\ i\sigma^2\chi_2^\ast
+        \end{pmatrix} \nonumber\\
+        & = \chi_1^\dagger i\bar{\sigma}\cdot\partial\chi_1 
+        - i\partial\chi_2^\dagger\cdot\bar{\sigma}\chi_2
+        - im \left(\chi_1^\dagger\sigma^2\chi_2^\ast - \chi_2^T\sigma^2\chi_1\right).
+    \end{align}
+    The second term can be written in a similiar form as the first term by integrating by parts the action:
+    \begin{equation*}
+        \int \dd^4 x \, i\partial\chi_2^\dagger\cdot\bar{\sigma}\chi_2 = (\text{surface term}) - \int \dd^4x \, \chi_2^\dagger i\bar{\sigma}\cdot\partial\chi_2.
+    \end{equation*}
+    So \eqref{equ:cp3:dirac_lag} can be written equivalently as
+    \begin{equation*}
+        \mathcal{L} = \chi_1^\dagger i\bar{\sigma}\cdot\partial\chi_1
+         + \chi_2^\dagger i\bar{\sigma}\cdot\partial\chi_2
+         - im \left(\chi_1^\dagger\sigma^2\chi_2^\ast - \chi_2^T\sigma^2\chi_1\right).
+    \end{equation*}
+    The Dirac equation can be written in terms of $\chi_1$ and $\chi_2$ as
+    \begin{equation*}
+        (i\slashed{\partial} - m)\psi = \begin{pmatrix}
+            -m & i\sigma\cdot\partial \\
+            i\bar{\sigma}\cdot\partial & -m
+        \end{pmatrix} \begin{pmatrix}
+            \chi_1 \\ i\sigma^2 \chi_2^\ast
+        \end{pmatrix} = \begin{pmatrix}
+            -(\sigma\cdot\partial)\sigma^2\chi_2^\ast - m\chi_1 \\
+            i\bar{\sigma}\cdot\partial\chi_1 - im\sigma^2\chi_2^\ast
+        \end{pmatrix} = 0,
+    \end{equation*}
+    that is
+    \begin{subequations}\label{equ:cp3:dirac_eq_2}
+        \begin{align}
+            i\bar{\sigma}\cdot\partial\chi_1 - im\sigma^2\chi_2^\ast & = 0, \\
+            i\bar{\sigma}\cdot\partial\chi_2 - im\sigma^2\chi_1^\ast & = 0,
+        \end{align}
+    \end{subequations}
+    compared to \eqref{equ:cp3:majorana_eq}.
+
+    \item Since the original Dirac action is invariant under global symmetry $\psi \to e^{-i\alpha}\psi$, \eqref{equ:cp3:dirac_lag} then also has a global symmetry
+    \begin{subequations}\label{equ:cp3:dirac_sym2}
+        \begin{align}
+            \chi_1 & \to e^{-i\alpha}\chi_1, \\
+            \chi_2 & \to e^{i\alpha}\chi_2.
+        \end{align}
+    \end{subequations}
+    For the first current,
+    \begin{equation*}
+        \partial_\mu J^\mu = \partial\chi^\dagger\cdot\bar{\sigma} \chi + \chi^\dagger\bar{\sigma}\cdot\partial\chi
+        = m\chi^T\sigma^2\chi + m\chi^\dagger\sigma^2\chi^\ast,
+    \end{equation*}
+    which does not vanish, so this current is not conserved\needverify.
+    For the second current,
+    \begin{align*}
+        \partial_\mu J^\mu & = \partial\chi_1^\dagger\cdot\bar{\sigma}\chi_1 + \chi_1^\dagger\bar{\sigma}\cdot\partial\chi_1
+        - \partial\chi_2^\dagger\cdot\bar{\sigma}\chi_2 - \chi_2^\dagger\bar{\sigma}\cdot\partial\chi_2 \\
+        & = m\chi_2^T\sigma^2\chi_1 + m\chi_1^\dagger\sigma^2\chi_2^\ast - m\chi_1^T\sigma^2\chi_2 - m\chi_2^\dagger\sigma^2\chi_1^\ast\\
+        & = 0,
+    \end{align*}
+    which is an expected result, since it is the corresponding Neother current of symmetry \eqref{equ:cp3:dirac_sym2}.
+    The action of the theory with N massive 2-component fermion fields can be obtained simply by adding the action of each field:
+    \begin{equation*}
+        S = \sum_i \int \dd^4x \, \left[\chi_i^\dagger i\bar{\sigma}\cdot\chi_i + \frac{im}{2}\left(\chi_i^T\sigma^2\chi_i - \chi_i^\dagger\sigma^2\chi_i^\ast\right)\right].
+    \end{equation*}
+    This action is invariant under the global transformation
+    \begin{equation*}
+        \chi_i \to R_{ij}\chi_j,
+    \end{equation*}
+    where $R \in O(N)$ is an $N \times N$ real orthogonal matrix.
+
+    \item First, expand $\chi$ in terms of plan wave functions
+    \begin{equation}\label{equ:cp3:majorana_expand}
+        \chi(x) = \sum_k \left(u_k \varphi_k + v_k \varphi_k^\ast\right),
+    \end{equation}
+    where $\varphi_k$ is defined by \eqref{equ:cp2:plain_w}. Substitute into \eqref{equ:cp3:majorana_eq}, we get
+    \begin{subequations}
+        \begin{align}
+            k\cdot\bar{\sigma} u_k & = im\sigma^2 v_k^\ast, \\
+            k\cdot\bar{\sigma} v_k & = -im\sigma^2 u_k.
+        \end{align}
+    \end{subequations}
+    The second equation is automatically satisfied if $k^2 = m^2$. Then the solution can be written as
+    \begin{subequations}\label{equ:cp3:majorana_spinor}
+        \begin{align}
+            u_k & = \sqrt{k\cdot\sigma}\xi a_k,\\
+            v_k & = \sqrt{k\cdot\sigma} (-i\sigma^2) \xi^\ast a_k^\ast,
+        \end{align}
+    \end{subequations}
+    where $a_k$ is the amplitude depends on $k$, and $\xi$ a 2-component Grassmannian variable, related to the particle's spin. To quantize
+    $\chi$, promoting $a_k$ to operators and separate them from \eqref{equ:cp3:majorana_spinor}. Choosing a basis $\{\xi^1, \xi^2\}$ of $\xi$ just
+    as we've done with the Dirac spinors, \eqref{equ:cp3:majorana_expand} can now be written as
+    \begin{equation}\label{equ:cp3:majorana_expand_q}
+        \chi(x) = \sum_{k, s} \left(u_k^s a_k^s \varphi_k + v_k^s a_k^{s\dagger} \varphi_k^\ast\right),
+    \end{equation}
+    where
+    \begin{subequations}
+        \begin{align}
+            u_k^s & = \sqrt{k\cdot\sigma}\xi^s,\\
+            v_k^s & = \sqrt{k\cdot\sigma} (-i\sigma^2) \xi^{s\ast}.
+        \end{align}
+    \end{subequations}
+    The orthogonal relations of $u_k^s$ and $v_k^s$ read
+    \begin{subequations}
+        \begin{equation}
+            (v_k^s)^T\sigma^2 u_k^{s'} = (u_k^{s'})^T\sigma^2 v_k^s = im\delta_{ss'},
+        \end{equation}
+        \begin{equation}
+            (v_k^s)^\dagger\sigma^2 (u_k^{s'})^\ast = (u_k^{s'})^\dagger\sigma^2 (v_k^s)^\ast = -im\delta_{ss'}.
+        \end{equation}
+    \end{subequations}
+    Thus the operator $a_k$ can be solved from \eqref{equ:cp3:majorana_expand_q} as 
+    \begin{equation*}
+        a_k = 
+    \end{equation*}
+\end{problembody}

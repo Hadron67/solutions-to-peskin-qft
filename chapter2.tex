@@ -6,7 +6,7 @@
     S = \int \dd^4 x \left(-\frac{1}{4} F_{\mu\nu} F^{\mu\nu} \right), 
     \qquad \text{where } F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
 \end{equation}
-\begin{enumerate}[label = {(\alph*)}]
+\begin{problembody}
     \item Derive Maxwell's equations as the Eular-Lagrange equations of this action, treating the 
     components $A_\mu$ as the dynamical variables.
     \item Construct the energy-momentum tensor for this theory. Note that the usual procedure does
@@ -26,19 +26,19 @@
     \begin{equation*}
         \mathcal{E} = \frac{1}{2}(E^2 + B^2); \quad \vec{S} = \vec{E} \times \vec{B}
     \end{equation*}
-\end{enumerate}
+\end{problembody}
 
 \solution 
-\begin{enumerate}[label = {(\alph*)}]
+\begin{problembody}
     \item The Lagrangian density can be written as
     \begin{equation}\label{equ:cp2:l_den}
         \mathcal{L} = \frac{1}{2} \left(\partial_\mu A_\nu\right)^2 - \frac{1}{2}\partial_\mu A_\nu \partial^\nu A^\mu
     \end{equation}
     substitute \eqref{equ:cp2:l_den} into Eular-Lagrange equation
-    \begin{equation}\label{equ:eular_lagrangian_a}
+    \begin{equation}\label{equ:cp2:eular_lagrangian_a}
         \pd{\mathcal{L}}{A_\mu} = \partial_\nu \left(\pd{\mathcal{L}}{(\partial_\nu A_\mu)}\right)
     \end{equation}
-    The LHS of \eqref{equ:eular_lagrangian_a} is zero, while the derivative in the bracket of RHS becomes
+    The LHS of \eqref{equ:cp2:eular_lagrangian_a} is zero, while the derivative in the bracket of RHS becomes
     \begin{align*}
         \pd{\mathcal{L}}{(\partial_\nu A^\mu)} 
         & = -\frac{1}{2} F^{\alpha\beta} \left(\delta^\nu_\alpha \delta^\mu_\beta - \delta^\nu_\beta \delta^\mu_\alpha\right)\\
@@ -67,7 +67,7 @@
     \begin{equation}\label{equ:cp2:a_neother}
         T^{\mu\nu} = \pd{\mathcal{L}}{(\partial_\mu A_\lambda)} \partial^\nu A_\lambda - \mathcal{L} g^{\mu\nu}
     \end{equation}
-    Substitute \eqref{equ:eular_lagrangian_a} into \eqref{equ:cp2:a_neother}, we get
+    Substitute \eqref{equ:cp2:eular_lagrangian_a} into \eqref{equ:cp2:a_neother}, we get
     \begin{equation}
         T^{\mu\nu} = -F^{\mu\lambda} \partial^\nu A_\lambda + \frac{1}{4} (F_{\alpha\beta})^2 g^{\mu\nu}
     \end{equation}
@@ -80,16 +80,16 @@
     where we have used \eqref{equ:cp2:f_maxwell} in the second step. Now the energy and momentum density 
     can be read as
     \begin{equation*}
-        \mathcal{E} = T^{00} = F^{0i}F_i{}^0 + \frac{1}{2}(B^2 - E^2) = \frac{1}{2} (B^2 + E^2)
+        \mathcal{E} = \widehat{T}^{00} = F^{0i}F_i{}^0 + \frac{1}{2}(B^2 - E^2) = \frac{1}{2} (B^2 + E^2)
     \end{equation*}
     \begin{equation*}
-        S^i = T^{i0} = F^{0j}F_j{}^i = E^j B^k \epsilon_{jki}
+        S^i = \widehat{T}^{i0} = F^{0j}F_j{}^i = E^j B^k \epsilon_{jki}
     \end{equation*}
     that is
     \begin{equation*}
         \vec{S} = \vec{E} \times \vec{B}
     \end{equation*}
-\end{enumerate}
+\end{problembody}
 
 \problem \textbf{The complex scalar field.} Consider the field theory of a complex-valued scalar field obeying 
 the klein-Gordon equation. The action of the theory is
@@ -98,7 +98,7 @@ the klein-Gordon equation. The action of the theory is
 \end{equation}
 It is easiest to analyse this theory by considering $\phi(x)$ and $\phi^\ast(x)$, rather than the real and imaginery
 parts of $\phi(x)$, as the basic dynamic varaibles.
-\begin{enumerate}[label = {(\alph*)}, ref = {(\alph*)}]
+\begin{problembody}
     \item Find the conjugate momenta to $\phi(x)$ and $\phi^\ast(x)$ and the canonical commutation relations. Show 
     that the Hamiltonian is
     \begin{equation}\label{equ:cp2:h_csf}
@@ -124,10 +124,10 @@ parts of $\phi(x)$, as the basic dynamic varaibles.
     where $\sigma^i$ are the Pauli sigma matrices. Show that these three charges have the commutation relations of 
     angular momentum (\textit{SU}(2)). Generalize these results to the case of \textit{n} identical complex scalar 
     fields.
-\end{enumerate}
+\end{problembody}
 
 \solution
-\begin{enumerate}[label = {(\alph*)}]
+\begin{problembody}
     \item The conjugate momenta are
     \begin{subequations}\label{equ:cp2:csf_p}
         \begin{align}
@@ -187,9 +187,9 @@ parts of $\phi(x)$, as the basic dynamic varaibles.
     \end{equation}
     so the inner products of the plain wave functions are
     \begin{align*}
-        \langle \varphi_k, \varphi_{k^\prime} \rangle & = \delta_{kk^\prime}\\
-        \langle \varphi^\ast_k, \varphi^\ast_{k^\prime} \rangle & = -\delta_{kk^\prime}\\
-        \langle \varphi_k, \varphi^\ast_{k^\prime} \rangle & = 0
+        \langle \varphi_k, \varphi_{k'} \rangle & = \delta_{kk'}\\
+        \langle \varphi^\ast_k, \varphi^\ast_{k'} \rangle & = -\delta_{kk'}\\
+        \langle \varphi_k, \varphi^\ast_{k'} \rangle & = 0
     \end{align*}
     Notice that the second slot of the inner product is linear, while the first slot is antilinear. 
     Then the operators $a_k$ and $b_k$ can be expressed as
@@ -202,23 +202,23 @@ parts of $\phi(x)$, as the basic dynamic varaibles.
     using \eqref{equ:cp2:csf_comm}, we get the commutation relations for operators $a_k$ and $b_k$:
     \begin{subequations}\label{equ:cp2:csf_a_b_com}
         \begin{equation}
-            [a_k,a_{k^\prime}] = [b_k, b_{k^\prime}] = 0
+            [a_k,a_{k'}] = [b_k, b_{k'}] = 0
         \end{equation}
         \begin{equation}
-            [a_k,b_{k^\prime}] = [a_k, b_{k^\prime}^\dagger] = 0
+            [a_k,b_{k'}] = [a_k, b_{k'}^\dagger] = 0
         \end{equation}
         \begin{equation}
-            [a_k, a_{k^\prime}^\dagger] = [b_k, b_{k^\prime}^\dagger] = \delta_{kk^\prime}
+            [a_k, a_{k'}^\dagger] = [b_k, b_{k'}^\dagger] = \delta_{kk'}
         \end{equation}
     \end{subequations}
     substitute \eqref{equ:cp2:phi_expand} into \eqref{equ:cp2:csf_hami}, and using \eqref{equ:cp2:csf_a_b_com}, we get the 
     Hamiltonian written in terms of creation and annihilation operators
     \begin{align}\label{equ:cp2:csf_hami_diag}
-        H & = \sum_{k, k^\prime}\left(\omega_k\omega_{k^\prime} + \vec{k}\cdot\vec{k}^\prime + m^2\right)
+        H & = \sum_{k, k'}\left(\omega_k\omega_{k'} + \vec{k}\cdot\vec{k}' + m^2\right)
         \int \dd^3x \, \left(a^\dagger_k\varphi^\ast_k - b_k\varphi_k\right)
-        \left(a_{k^\prime}\varphi_{k^\prime} - b^\dagger_{k^\prime}\varphi^\ast_{k^\prime}\right)\nonumber\\
-        & = \sum_{k, k^\prime}\left(\omega_k\omega_{k^\prime} + \vec{k}\cdot\vec{k}^\prime + m^2\right)
-        \int \dd^3x \, \left(a^\dagger_k a_{k^\prime} \varphi^\ast_k \varphi_{k^\prime} + b_k b^\dagger_{k^\prime} \varphi_k \varphi^\ast_{k^\prime}\right)\nonumber\\
+        \left(a_{k'}\varphi_{k'} - b^\dagger_{k'}\varphi^\ast_{k'}\right)\nonumber\\
+        & = \sum_{k, k'}\left(\omega_k\omega_{k'} + \vec{k}\cdot\vec{k}' + m^2\right)
+        \int \dd^3x \, \left(a^\dagger_k a_{k'} \varphi^\ast_k \varphi_{k'} + b_k b^\dagger_{k'} \varphi_k \varphi^\ast_{k'}\right)\nonumber\\
         & = \sum_k \omega_k \left(a^\dagger_k a_k + b^\dagger_k b_k + 1\right)
     \end{align}
     so this theory contains two sets of particles with mass \textit{m}, created by $a^\dagger_k$ and $b^\dagger_k$, respectively.
@@ -226,9 +226,9 @@ parts of $\phi(x)$, as the basic dynamic varaibles.
 
     \item Substitute \eqref{equ:cp2:phi_expand} into \eqref{equ:cp2:charge}, we get
     \begin{align}\label{equ:cp2:charge_diag}
-        Q & = \frac{i}{2} \left[\sum_{k, k^\prime} (-i\omega_{k^\prime})
+        Q & = \frac{i}{2} \left[\sum_{k, k'} (-i\omega_{k'})
         \int \dd^3x \, \left(a^\dagger_k\varphi^\ast_k + b_k\varphi_k\right)
-        \left(a_{k^\prime} \varphi_{k^\prime} - b^\dagger_{k^\prime}\varphi^\ast_{k^\prime}\right) - h.c.\right]\nonumber\\
+        \left(a_{k'} \varphi_{k'} - b^\dagger_{k'}\varphi^\ast_{k'}\right) - h.c.\right]\nonumber\\
         & = \frac{i}{2} \left[-\frac{i}{2} \sum_k \left(a^\dagger_k a_k - b_k b^\dagger_k\right) - h.c.\right]\nonumber\\
         & = \frac{1}{2} \sum_k \left(a^\dagger_k a_k - b^\dagger_k b_k\right)
     \end{align}
@@ -271,7 +271,7 @@ parts of $\phi(x)$, as the basic dynamic varaibles.
         & = \int \dd^3x \, \left(\phi^\dagger t^i \pi^\dagger - \pi t^i \phi\right)
     \end{align*}
     There are totally $n^2$ charges. In the case $n = 2$, there are 4 charges, and $t^i$ become the Pauli sigma matrices.
-\end{enumerate}
+\end{problembody}
 
 \problem Evaluate the function
 \begin{equation*}
@@ -282,7 +282,7 @@ for $(x - y)$ spacelike so that $(x - y)^2 = -r^2$, explicitly in terms of Besse
 \solution
 \begin{align*}
     D(x - y) & = \int \frac{\dd^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} e^{i\vec{p}\cdot(\vec{x} - \vec{y})}\\
-    & = \frac{1}{4\pi^2} \int_0^{+\infty} \frac{p^2}{2E_{\mathbf{p}}} \dd p \int_{-1}^1 d(\cos\theta) e^{ipr\cos\theta}\\
+    & = \frac{1}{4\pi^2} \int_0^{+\infty} \frac{p^2}{2E_{\mathbf{p}}} \dd p \int_{-1}^1 \dd (\cos\theta) e^{ipr\cos\theta}\\
     & = \frac{1}{8\pi^2ir} \int_0^{+\infty} \frac{p}{E_{\mathbf{p}}} \left(e^{ipr} - e^{-ipr}\right)\\
     & = \frac{1}{8\pi^2ir} \int_{-\infty}^{+\infty} \frac{p}{\sqrt{p^2 + m^2}} e^{ipr} \dd p\\
     & = \frac{1}{8\pi^2ir} \left[\int_{+im}^{+i\infty} \frac{p}{i\sqrt{-p^2 - m^2}} e^{ipr} \dd p + \int_{+i\infty}^{im} \frac{p}{-i\sqrt{-p^2 - m^2}} e^{ipr} \dd p \right]\\
