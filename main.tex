@@ -8,8 +8,15 @@
 % math
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdd}[3]{\frac{\partial^2 #1}{\partial #2\partial #3}}
 \newcommand{\hodge}{{}^\star}
-
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\cc}{\mathrm{c.c.}}
+\newcommand{\hc}{\mathrm{h.c.}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\bra}[1]{\left\langle #1\right|}
+\newcommand{\inner}[2]{\left\langle #1 \middle| #2 \right\rangle}
 % counter for problems
 \newcounter{problemCounter}[section]
 \newcommand{\problem}{\stepcounter{problemCounter}\noindent\textbf{\arabic{section}.\arabic{problemCounter}} \quad}
@@ -31,7 +38,7 @@
 \numberwithin{problemCounter}{section}
 
 \author{hadroncfy}
-\title{Solutions to problems in \textit{An Introduction to Quantum Field Theory}}
+\title{Detailed Solutions to Problems in \textit{An Introduction to Quantum Field Theory}}
 
 \begin{document}
 \maketitle

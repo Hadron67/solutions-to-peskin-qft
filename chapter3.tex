@@ -3,17 +3,17 @@
 \setcounter{equation}{150}
 \problem \textbf{Lorentz group.} Recall from Eq. (3.17) the Lorentz commutation relations,
 \begin{equation*}
-    [J^{\mu\nu}, J^{\rho\sigma}] = i(g^{\nu\rho}J^{\mu\sigma} - g^{\mu\rho}J^{\nu\sigma} - g^{\nu\sigma}J^{\mu\rho} + g^{\mu\sigma}J^{\nu\rho})
+    [J^{\mu\nu}, J^{\rho\sigma}] = i(g^{\nu\rho}J^{\mu\sigma} - g^{\mu\rho}J^{\nu\sigma} - g^{\nu\sigma}J^{\mu\rho} + g^{\mu\sigma}J^{\nu\rho}).
 \end{equation*}
 \begin{problembody}
     \item \label{ex:cp3:lor_gen_com} 
     Define the generators of rotations and boosts as
     \begin{equation*}
-        L^i = \frac{1}{2}\epsilon^{ijk} J^{jk}, \quad K^i = J^{0i}
+        L^i = \frac{1}{2}\epsilon^{ijk} J^{jk}, \quad K^i = J^{0i},
     \end{equation*}
     where $i, j, k = 1, 2, 3$. An infinitesimal Lorentz transformation can then be written
     \begin{equation}\label{equ:cp2:infsm_lor_trans}
-        \Phi \to \left(1 - i\vec{\theta}\cdot\vec{L} - i\vec{\beta}\cdot\vec{K}\right)\Phi
+        \Phi \to \left(1 - i\vec{\theta}\cdot\vec{L} - i\vec{\beta}\cdot\vec{K}\right)\Phi.
     \end{equation}
     Write the commutation relations of these operators explicitly. (For example, $[L^i, L^j] = i\epsilon^{ijk}L^k$)
     Show that the combinations 
@@ -56,53 +56,53 @@
         & = \frac{i}{4} \left(-\epsilon^{ikm}\epsilon^{jmn}J^{kn} - \epsilon^{ikl}\epsilon^{jmk}J^{lm} 
         + \epsilon^{ikl}\epsilon^{jkn}J^{ln} + \epsilon^{ikl}\epsilon^{jml}J^{km}\right)\\
         & = i J^{ij}\\
-        & = i \epsilon^{ijk} L^k
+        & = i \epsilon^{ijk} L^k.
     \end{align*}
     Commutators of the boost generators are
     \begin{align*}
         [K^i, K^j] & = [J^{0i}, J^{0j}]\\
         & = i\left(g^{i0}J^{0j} + g^{0j}J^{i0} - g^{00}J^{ij} - g^{ij}J^{00}\right)\\
         & = -iJ^{ij}\\
-        & = -i \epsilon^{ijk} L^k
+        & = -i \epsilon^{ijk} L^k.
     \end{align*}
     Commutators between rotation generators and boost generators are
     \begin{align*}
         [L^i, K^j] & = \frac{1}{2} \epsilon^{ikl} [J^{kl}, J^{0j}]\\
         & = \frac{i}{2} \epsilon^{ikl} \left(g^{l0}J^{kj} + g^{kj}J^{l0} - g^{k0}J^{lj} - g^{lj}J^{k0}\right)\\
         & = i\epsilon^{ijk} J^{0k}\\
-        & = i\epsilon^{ijk} K^j
+        & = i\epsilon^{ijk} K^j.
     \end{align*}
     And the commutation relations of $\vec{J}_\pm$ are
     \begin{align*}
         [J^i_\pm, J^j_\pm] & = \frac{1}{4}[L^i \pm iK^i, L^j \pm iK^j]\\
         & = \frac{1}{4} \left(i\epsilon^{ijk}L^k \mp 2i\epsilon^{ijk}K^k + i\epsilon^{ijk}L^k\right)\\
         & = \frac{i}{2} \epsilon^{ijk} \left(L^k \pm iK^k\right)\\
-        & = i\epsilon^{ijk} J^k_\pm
+        & = i\epsilon^{ijk} J^k_\pm.
     \end{align*}
-    that is, $\vec{J}_\pm$ satisfy the commutation relations of angular momentum. Further more, the commutators between 
+    That is, $\vec{J}_\pm$ satisfy the commutation relations of angular momentum. Further more, the commutators between 
     $\vec{J}_+$ and $\vec{J}_-$ are
     \begin{align*}
         [J^i_+, J^j_-] & = \frac{1}{4} [L^i + iK^i, L^j - iK^j]\\
         & = \frac{1}{4} \left(i\epsilon^{ijk}L^k + \epsilon^{ijk}K^k - \epsilon^{ijk}K^k -i\epsilon^{ijk}L^k\right)\\
-        & = 0
+        & = 0.
     \end{align*}
     So $\vec{J}_+$ and $\vec{J}_-$ commutes with each other.
 
     \item The infinitesimal transformation \eqref{equ:cp2:infsm_lor_trans} can now be written, in terms of $\vec{J}_\pm$, as
     \begin{equation}\label{equ:cp3:lor_uni_trans}
-        \Phi \to \left[1 - i\left(\vec{\theta} - i\vec{\beta}\right)\cdot\vec{J}_+ - i\left(\vec{\theta} + i\vec{\beta}\right)\cdot\vec{J}_-\right] \Phi
+        \Phi \to \left[1 - i\left(\vec{\theta} - i\vec{\beta}\right)\cdot\vec{J}_+ - i\left(\vec{\theta} + i\vec{\beta}\right)\cdot\vec{J}_-\right] \Phi.
     \end{equation}
-    for $(\frac{1}{2}, 0)$, make substitution
+    For $(\frac{1}{2}, 0)$, make substitution
     \begin{equation*}
-        \vec{J}_+ \to \frac{\vec{\sigma}}{2}, \quad \vec{J}_- \to \vec{0}
+        \vec{J}_+ \to \frac{\vec{\sigma}}{2}, \quad \vec{J}_- \to \vec{0},
     \end{equation*}
     so that the transformation is
     \begin{equation}\label{equ:cp3:spinor_trans_L}
-        \psi \to \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} - \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right)\psi
+        \psi \to \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} - \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right)\psi,
     \end{equation}
     which is the same as the transformation of $\psi_L$ in (3.37). Similarly, for $(0, \frac{1}{2})$, the transformation is
     \begin{equation*}
-        \psi \to \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} + \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right) \psi
+        \psi \to \left(1 - i\vec{\theta}\cdot\frac{\vec{\sigma}}{2} + \vec{\beta}\cdot\frac{\vec{\sigma}}{2}\right) \psi,
     \end{equation*}
     which is the transformation of $\psi_R$.
 
@@ -114,25 +114,25 @@
         \left(V^0 + \vec{\sigma}\cdot\vec{V}\right)
         \left(1 + i\vec{\alpha}\cdot\frac{\vec{\sigma}}{2}\right)\\
         & = \left(1 + \vec{\beta}\cdot\vec{\sigma}\right) V^0 + \vec{\sigma}\cdot\vec{V} + \vec{\beta}\cdot\vec{V} + \left(\vec{\theta}\times\vec{V}\right)\cdot\vec{\sigma}\\
-        & = V^0 + \vec{\beta}\cdot\vec{V} + \left(\vec{V} + \vec{\beta}V^0 + \vec{\theta}\times\vec{V}\right)\cdot\vec{\sigma}
+        & = V^0 + \vec{\beta}\cdot\vec{V} + \left(\vec{V} + \vec{\beta}V^0 + \vec{\theta}\times\vec{V}\right)\cdot\vec{\sigma}.
     \end{align*}
     Thus, the infinitesimal transformation of $V^\mu$ is
     \begin{subequations}\label{equ:cp3:v_trans}
         \begin{align}
-            V^0 & \to V^0 + \vec{\beta}\cdot\vec{V}\\
-            \vec{V} & \to \vec{V} + \vec{\beta}V^0 + \vec{\theta}\times\vec{V}
+            V^0 & \to V^0 + \vec{\beta}\cdot\vec{V};\\
+            \vec{V} & \to \vec{V} + \vec{\beta}V^0 + \vec{\theta}\times\vec{V}.
         \end{align}
     \end{subequations}
     This is exactly the transformation law for 4-vectors. To make it more obvious, let
     \begin{subequations}\label{equ:cp3:omega_def}
         \begin{align}
-            \omega_{0i} & = \beta_i \\
-            \omega_{ij} & = \epsilon_{ijk} \theta^k
+            \omega_{0i} & = \beta_i, \\
+            \omega_{ij} & = \epsilon_{ijk} \theta^k.
         \end{align}
     \end{subequations}
     So that \eqref{equ:cp3:v_trans} can be written in 4-vector form as
     \begin{equation*}
-        V^\mu \to V^\mu + \omega^\mu{}_\nu V^\nu
+        V^\mu \to V^\mu + \omega^\mu{}_\nu V^\nu.
     \end{equation*}
     Which is the same as (3.19) by setting $(\mathcal{J}^{\mu\nu})_{\alpha\beta} = 2i \delta^{[\mu}_\alpha \delta^{\nu]}_\beta$.
 \end{problembody}
@@ -148,7 +148,7 @@ where $q = (p' - p)$. We will put this formula to use in Chapter 6.
     \bar{u}(p')\frac{i\sigma^{\mu\nu}q_\nu}{2m} u(p) 
     & = -\frac{1}{4m} \bar{u}(p') \left[\gamma^\mu(\slashed{p}' - \slashed{p}) - (\slashed{p}' - \slashed p) \gamma^\mu \right] u(p)\\
     & = -\frac{1}{4m} \bar{u}(p') \left[-2\slashed{p}'\gamma^\mu - 2\gamma^\mu\slashed{p} + 2(p'^\mu + p^\mu) \right] u(p)\\
-    & = \bar{u}(p')\gamma^\mu u(p) - \bar{u}(p')\frac{p'^\mu + p^\mu}{2m}u(p)
+    & = \bar{u}(p')\gamma^\mu u(p) - \bar{u}(p')\frac{p'^\mu + p^\mu}{2m}u(p).
 \end{align*}
 Moving the second term of RHS to LHS, we obtain \eqref{equ:cp3:gordon_identity}.
 
@@ -157,7 +157,7 @@ processes involving massless particles.) Let $k_0^\mu$, $k_1^\mu$ be fixed 4-vec
 Define basic spinors in the following way: Let $u_{L0}$ be the left-handed spinor for a fermion with momentum $k_0$. Let $u_{R0} = \slashed{k}_1 u_{L0}$.
 Then, for any $p$ such that $p$ is lightlike ($p^2 = 0$), define
 \begin{equation*}
-    u_L(p) = \frac{1}{\sqrt{2p\cdot k_0}} \slashed{p} u_{R0}, \qquad u_R(p) = \frac{1}{\sqrt{2p\cdot k_0}}  \slashed{p} u_{L0}
+    u_L(p) = \frac{1}{\sqrt{2p\cdot k_0}} \slashed{p} u_{R0}, \qquad u_R(p) = \frac{1}{\sqrt{2p\cdot k_0}}  \slashed{p} u_{L0}.
 \end{equation*}
 This set of convensions define defines the phase of spinors unambiguously (except when $p$ is paralle to $k_0$).
 \begin{problembody}
@@ -165,12 +165,12 @@ This set of convensions define defines the phase of spinors unambiguously (excep
     \item \label{ex:cp3:sp_choices} For choices $k_0 = (E, 0, 0, -E)$, $k_1 = (0, 1, 0, 0)$, construct $u_{L0}$, $u_{R0}$, $u_L(p)$, and $u_R(p)$ explicitly.
     \item Define the \textit{spinor products} $s(p_1, p_2)$ and $t(p_1, p_2)$, for $p_1$, $p_2$ lightlike, by
     \begin{equation*}
-        s(p_1, p_2) = \bar{u}_R(p_1) u_L(p_2), \qquad t(p_1, p_2) = \bar{u}_L(p_1) u_R(p_2)
+        s(p_1, p_2) = \bar{u}_R(p_1) u_L(p_2), \qquad t(p_1, p_2) = \bar{u}_L(p_1) u_R(p_2).
     \end{equation*}
     Using the explicit forms for the $u_\lambda$ given in part \ref{ex:cp3:sp_choices}, compute the spinor products explicitly and show that
     $t(p_1, p_2) = (s(p_2, p_1))^\ast$ and $s(p_1, p_2) = -s(p_2, p_1)$. In addition, show that
     \begin{equation*}
-        \left| s(p_1, p_2) \right|^2 = 2p_1 \cdot p_2
+        \left| s(p_1, p_2) \right|^2 = 2p_1 \cdot p_2.
     \end{equation*}
     Thus the spinor products are the square roots of 4-vector dot products.
 \end{problembody}
@@ -179,7 +179,7 @@ This set of convensions define defines the phase of spinors unambiguously (excep
 \begin{problembody}
     \item Since $\slashed{k}_0 u_{L0} = 0$, so that
     \begin{equation*}
-        \slashed{k}_0 u_{R0} = \slashed{k}_0 \slashed{k}_1 u_{L0} = \left(2k_0 \cdot k_1 - \slashed{k}_1 \slashed{k}_0\right) u_{L0} = 0
+        \slashed{k}_0 u_{R0} = \slashed{k}_0 \slashed{k}_1 u_{L0} = \left(2k_0 \cdot k_1 - \slashed{k}_1 \slashed{k}_0\right) u_{L0} = 0.
     \end{equation*}
     The next two equations are obvious, since $\slashed{p}\slashed{p} = p^2 = 0$.
 
@@ -196,7 +196,7 @@ This set of convensions define defines the phase of spinors unambiguously (excep
             \sigma_x & 0
         \end{pmatrix} u_{L0}(k_0) = \sqrt{2E}\begin{pmatrix}
             0 \\ 0 \\ 0 \\ 1
-        \end{pmatrix}
+        \end{pmatrix},
     \end{equation*}
     \begin{equation*}
         u_L(p) = \frac{1}{\sqrt{E_p + p_z}} \begin{pmatrix}
@@ -212,7 +212,7 @@ This set of convensions define defines the phase of spinors unambiguously (excep
             E_p + p_z \\
             0 \\
             0
-        \end{pmatrix}
+        \end{pmatrix},
     \end{equation*}
     \begin{equation*}
         u_R(p) = \frac{1}{\sqrt{E_p + p_z}} \begin{pmatrix}
@@ -228,7 +228,7 @@ This set of convensions define defines the phase of spinors unambiguously (excep
             0 \\
             E_p + p_z \\
             p_x + ip_y
-        \end{pmatrix}
+        \end{pmatrix},
     \end{equation*}
     where $E_p = |\vec{p}|$.
 
@@ -237,13 +237,13 @@ This set of convensions define defines the phase of spinors unambiguously (excep
         s(p_1, p_2) = \frac{
             E_{p1}(ip_{2y} - p_{2x}) + E_{p2}(p_{1x} - ip_{1y}) + ip_{1z}p_{2y}
          - p_{1z}p_{2x} + p_{1x}p_{2z} - ip_{1y}p_{2z}
-        } {\sqrt{(E_{p1} + p_{1z})(E_{p2} + p_{2z})}}
+        } {\sqrt{(E_{p1} + p_{1z})(E_{p2} + p_{2z})}},
     \end{equation*}
     \begin{equation*}
         t(p_1, p_2) = \frac{
             E_{p1}(p_{2x} + ip_{2y}) - E_{p2}(p_{1x} + ip_{1y}) + p_{1z}p_{2x}
          + ip_{1z}p_{2y} - p_{1x}p_{2z} - ip_{1y}p_{2z}
-        } {\sqrt{(E_{p1} + p_{1z})(E_{p2} + p_{2z})}}
+        } {\sqrt{(E_{p1} + p_{1z})(E_{p2} + p_{2z})}},
     \end{equation*}
     so that
     \begin{equation*}
@@ -258,7 +258,7 @@ This set of convensions define defines the phase of spinors unambiguously (excep
         {(E_{p1} + p_{1z})(E_{p2} + p_{2z})} \\
         & = (E_{p1} + p_{1z})(E_{p2} - p_{2z}) + (E_{p2} + p_{2z})(E_{p1} - p_{1z}) - 2(p_{1x}p_{2x} + p_{1y}p_{2y}) \\
         & = 2(E_{p1}E_{p2} - p_{1x}p_{2x} - p_{1y}p_{2y} - p_{1z}p_{2z})\\
-        & = 2 p_1 \cdot p_2
+        & = 2 p_1 \cdot p_2.
     \end{align*}
 \end{problembody}
 
@@ -391,7 +391,7 @@ that transforms as the upper two components of a Dirac spinor ($\psi_L$). Call s
     \end{equation*}
     Thus the action is real. Substitute this action into the Euler-Lagrange equation for $\chi^\ast$:
     \begin{equation*}
-        \pd{\mathcal{L}}{\chi_a^\ast} = \partial_\nu \left(\pd{\mathcal{L}}{(\partial_\nu\chi_a^\ast)}\right),
+        \pd{\lag}{\chi_a^\ast} = \partial_\nu \left(\pd{\lag}{(\partial_\nu\chi_a^\ast)}\right),
     \end{equation*}
     the RHS vanishes. As for the LHS, notice that $\chi$ is Grassmannian, the derivative of the quadratic term is
     \begin{equation*}
@@ -407,7 +407,7 @@ that transforms as the upper two components of a Dirac spinor ($\psi_L$). Call s
 
     \item The Lagrangian is
     \begin{align}\label{equ:cp3:dirac_lag}
-        \mathcal{L} = \bar{\psi}\left(i\slashed{\partial} - m\right)\psi 
+        \lag = \bar{\psi}\left(i\slashed{\partial} - m\right)\psi 
         & = \left(-i\chi_2^T\sigma^2, \chi_1^\dagger\right) \begin{pmatrix}
             -m & i\sigma\cdot\partial \\
             i\bar{\sigma}\cdot\partial & -m
@@ -424,7 +424,7 @@ that transforms as the upper two components of a Dirac spinor ($\psi_L$). Call s
     \end{equation*}
     So \eqref{equ:cp3:dirac_lag} can be written equivalently as
     \begin{equation*}
-        \mathcal{L} = \chi_1^\dagger i\bar{\sigma}\cdot\partial\chi_1
+        \lag = \chi_1^\dagger i\bar{\sigma}\cdot\partial\chi_1
          + \chi_2^\dagger i\bar{\sigma}\cdot\partial\chi_2
          - im \left(\chi_1^\dagger\sigma^2\chi_2^\ast - \chi_2^T\sigma^2\chi_1\right).
     \end{equation*}
@@ -472,7 +472,7 @@ that transforms as the upper two components of a Dirac spinor ($\psi_L$). Call s
     which is an expected result, since it is the corresponding Neother current of symmetry \eqref{equ:cp3:dirac_sym2}.
     The action of the theory with N massive 2-component fermion fields can be obtained simply by adding the action of each field:
     \begin{equation*}
-        S = \sum_i \int \dd^4x \, \left[\chi_i^\dagger i\bar{\sigma}\cdot\chi_i + \frac{im}{2}\left(\chi_i^T\sigma^2\chi_i - \chi_i^\dagger\sigma^2\chi_i^\ast\right)\right].
+        S = \sum_i \int \dd^4x \, \left[\chi_i^\dagger i\bar{\sigma}\cdot\partial\chi_i + \frac{im}{2}\left(\chi_i^T\sigma^2\chi_i - \chi_i^\dagger\sigma^2\chi_i^\ast\right)\right].
     \end{equation*}
     This action is invariant under the global transformation
     \begin{equation*}
@@ -488,7 +488,7 @@ that transforms as the upper two components of a Dirac spinor ($\psi_L$). Call s
     \begin{subequations}
         \begin{align}
             k\cdot\bar{\sigma} u_k & = im\sigma^2 v_k^\ast, \\
-            k\cdot\bar{\sigma} v_k & = -im\sigma^2 u_k.
+            k\cdot\bar{\sigma} v_k & = -im\sigma^2 u_k^\ast.
         \end{align}
     \end{subequations}
     The second equation is automatically satisfied if $k^2 = m^2$. Then the solution can be written as
@@ -498,30 +498,631 @@ that transforms as the upper two components of a Dirac spinor ($\psi_L$). Call s
             v_k & = \sqrt{k\cdot\sigma} (-i\sigma^2) \xi^\ast a_k^\ast,
         \end{align}
     \end{subequations}
-    where $a_k$ is the amplitude depends on $k$, and $\xi$ a 2-component Grassmannian variable, related to the particle's spin. To quantize
-    $\chi$, promoting $a_k$ to operators and separate them from \eqref{equ:cp3:majorana_spinor}. Choosing a basis $\{\xi^1, \xi^2\}$ of $\xi$ just
-    as we've done with the Dirac spinors, \eqref{equ:cp3:majorana_expand} can now be written as
-    \begin{equation}\label{equ:cp3:majorana_expand_q}
-        \chi(x) = \sum_{k, s} \left(u_k^s a_k^s \varphi_k + v_k^s a_k^{s\dagger} \varphi_k^\ast\right),
-    \end{equation}
-    where
+    where $a_k$ are Grassmann variables depend on $k$, and $\xi$ a 2-component variable, related to the particle's spin. Now  Choosing a basis $\{\xi^1, \xi^2\}$ of $\xi$ just
+    as we've done with the Dirac spinors, and redefine $u_k$ and $v_k$ as
     \begin{subequations}
         \begin{align}
-            u_k^s & = \sqrt{k\cdot\sigma}\xi^s,\\
+            u_k^s & = \sqrt{k\cdot\sigma} \xi^s, \\
             v_k^s & = \sqrt{k\cdot\sigma} (-i\sigma^2) \xi^{s\ast}.
         \end{align}
     \end{subequations}
     The orthogonal relations of $u_k^s$ and $v_k^s$ read
     \begin{subequations}
         \begin{equation}
-            (v_k^s)^T\sigma^2 u_k^{s'} = (u_k^{s'})^T\sigma^2 v_k^s = im\delta_{ss'},
+            (v_k^s)^T\sigma^2 u_k^{s'} = -(u_k^{s'})^T\sigma^2 v_k^s = im\delta_{ss'},
         \end{equation}
         \begin{equation}
-            (v_k^s)^\dagger\sigma^2 (u_k^{s'})^\ast = (u_k^{s'})^\dagger\sigma^2 (v_k^s)^\ast = -im\delta_{ss'}.
+            (v_k^s)^H\sigma^2 (u_k^{s'})^\ast = -(u_k^{s'})^H\sigma^2 (v_k^s)^\ast = -im\delta_{ss'}.
         \end{equation}
     \end{subequations}
-    Thus the operator $a_k$ can be solved from \eqref{equ:cp3:majorana_expand_q} as 
+    To quantize $\chi$, promoting $a_k$ to operators. To avoid ambiguity we will use ${}^\dagger$ and ${}^H$ to denote Hermitian conjugations of
+    operators and spinors respectively. We may start by guessing that \eqref{equ:cp3:majorana_expand} can be written as
+    \begin{equation}\label{equ:cp3:majorana_expand_q}
+        \chi(x) = \sum_{k, s} \left(a_k^s \varphi_k^s + a_k^{s\dagger} \bar{\varphi}_k^s\right),
+    \end{equation}
+    where
+    \begin{subequations}
+        \begin{align}
+            \varphi_k^s & = u_k^s \varphi_k = \sqrt{k\cdot\sigma}\xi^s \varphi_k,\\
+            \bar{\varphi}_k^s & = v_k^s \varphi_k^\ast = \sqrt{k\cdot\sigma} (-i\sigma^2) \xi^{s\ast} \varphi_k^\ast,
+        \end{align}
+    \end{subequations}
+    and $a_k^s$ satisfies the anticommutation relation $\{a_k^s, a_{k'}^{s'}\} = \delta_{ss'}\delta_{kk'}$. We can now verify that $\chi$ and $\chi^\dagger$ satisfy the canonical anticommutation relation: 
+    \begin{align*}
+        \{\chi_a(\vec{x}), \chi_b^\dagger(\vec{y})\} & = \sum_{k, s}\sum_{k', s'}\left\{a_k^s(\varphi_k^s)_a + a_k^{s\dagger}(\bar{\varphi}_k^s)_a, a_{k'}^{s'\dagger}(\varphi_{k'}^{s'\ast})_b + a_{k'}^{s'}(\bar{\varphi}_{k'}^{s'\ast})_b\right\}\\
+        & = \sum_{k, s}\left(\varphi_k^s(\vec{x})\varphi_k^{sH}(\vec{y}) + \bar{\varphi}_k^s(\vec{x})\bar{\varphi}_k^{sH}(\vec{y})\right)_{ab}\\
+        & = \delta_{ab} \frac{1}{V}\sum_k\frac{1}{2\omega_k}\left(k\cdot\sigma e^{i\vec{k}\cdot(\vec{x} - \vec{y})} + k\cdot\sigma e^{-i\vec{k}\cdot(\vec{x} - \vec{y})}\right)\\
+        & = \delta_{ab} \frac{1}{V}\sum_k e^{i\vec{k}\cdot(\vec{x} - \vec{y})}\\
+        & = \delta_{ab}\delta^3(\vec{x} - \vec{y}).
+    \end{align*}
+    The canonical conjugate momentum of $\chi$ is
     \begin{equation*}
-        a_k = 
+        \pi_a = \pd{\lag}{\dot{\chi_a}} = -i\chi_a^\dagger.
     \end{equation*}
+    Now construct the Hamitonian. To do this, we could use the defination $H = \sum_i p_i\dot{x_i} - L$. However, since we are working with Grassmann fields, the order of $p$ and $\dot{x}$ in the first term is not clear. But the
+    Hamitonian should reproduce \eqref{equ:cp3:majorana_eq} when substitute into Heisenburg equation, from this point we can construct the Hamitonian as
+    \begin{equation}\label{equ:cp3:hamitonian_marjorana}
+        H = \int \dd^3x \, \left[
+            i\chi^{T\dagger} \vec{\sigma}\cdot\nabla\chi 
+            - \frac{im}{2}\left(
+                \chi^T\sigma^2\chi 
+                - \chi^{T\dagger}\sigma^2\chi^\dagger
+            \right)
+        \right].
+    \end{equation}
+    Now substitute \eqref{equ:cp3:majorana_expand_q} into \eqref{equ:cp3:hamitonian_marjorana}:
+    \begin{align*}
+        H & = \sum_{k, s}\sum_{k', s'} \int \dd^3x \left[
+            -\left(a_{k'}^{s'\dagger}\varphi_{k'}^{s'H} + a_{k'}^{s'}\bar{\varphi}_{k'}^{s'H}\right)
+            \vec{k}\cdot\vec{\sigma}
+            \left(a_k^s\varphi_k^s - a_k^{s\dagger}\bar{\varphi}_k^s\right)
+            \right.\\
+            &\qquad \left. -\frac{im}{2} 
+            \left(a_{k'}^{s'}\varphi_{k'}^{s'T} + a_{k'}^{s'\dagger}\bar{\varphi}_{k'}^{s'T}\right)
+            \sigma^2
+            \left(a_k^s\varphi_k^s + a_k^{s\dagger}\bar{\varphi}_k^s\right) + \hc
+        \right]\\
+        & = \sum_{k, s} \omega_k \left(a_k^{s\dagger}a_k^s - \frac{1}{2}\right),
+    \end{align*}
+    which is a similiar result as that of Dirac field.
+\end{problembody}
+
+\problem \textbf{Supersymmetry.} It is possible to write field theories with continous symmetries linking fermions and bosons; such 
+transformations are called \textit{supersymmetries}.
+\begin{problembody}
+    \item\label{ex:cp3:susy1} The simplest example of supersymmetric field theory is the theory of a free complex boson and a free weyl fermion, written in the form
+    \begin{equation}\label{equ:cp3:susy_lag}
+        \lag = \partial_\mu\phi^\ast\partial^\mu\phi 
+            + \chi^\dagger i\bar{\sigma}\cdot\partial\chi
+            + F^\ast F.
+    \end{equation}
+    Here $F$ is an auxiliary complex scalar field whose field equation is $F = 0$. Show that this Lagrangian is invariant (up to a total divergence)
+    under the infinitesimal transformation
+    \begin{subequations}\label{equ:cp3:susy_sym_trans}
+        \begin{align}
+            \delta\phi & = -i\epsilon^T\sigma^2\chi,\\
+            \delta\chi & = \epsilon F + \sigma\cdot\partial\phi \sigma^2\epsilon^\ast,\\
+            \delta F & = -i\epsilon^\dagger\bar{\sigma}\cdot\partial\chi,
+        \end{align}
+    \end{subequations}
+    where the parameter $\epsilon_a$ is a 2-component spinor of Grassmann numbers.
+
+    \item Show that the term
+    \begin{equation}\label{equ:cp3:susy_mass_terms}
+        \Delta\lag = \left[m\phi F + \frac{1}{2}im\chi^T\sigma^2\chi\right] + (\text{complex conjugate})
+    \end{equation}
+    is also left invariant by the transformation given in part \ref{ex:cp3:susy1}. Eliminate $F$ from the complete Lagrangian $\lag + \Delta\lag$ by solving its field
+    equation, and show that the fermion and boson fields $\phi$ and $\chi$ are given the same mass.
+
+    \item It is possible to write supersymmetric nonlinear field equations by adding cubic and higher-order terms to the Lagrangian. Show that the following rather 
+    general field theory, containing the field $(\phi_i, \chi_i), i = 1, \dots, n$, is supersymmetric:
+    \begin{align}\label{equ:cp3:susy_lag_g}
+        \lag & = \partial_\mu\phi_i^\ast\partial^\mu\phi_i
+            + \chi_i^\dagger i\bar{\sigma}\cdot\partial\chi_i + F_i^\ast F_i\nonumber\\
+            & \qquad + \left(
+                F_i\pd{W[\phi]}{\phi_i} 
+                + \frac{i}{2}\pdd{W[\phi]}{\phi_i}{\phi_j}\chi_i^T\sigma^2\chi_j
+                + \cc
+            \right),
+    \end{align}
+    where $W[\phi]$ is an arbitary function of the $\phi_i$, called the \textit{superpotential}. For the simplest case $n = 1$ and $W = g\phi^3 / 3$, write out the field 
+    equations for $\phi$ and $\chi$ (after elimination of $F$).
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item Substitute the transformation \eqref{equ:cp3:susy_sym_trans} into \eqref{equ:cp3:susy_lag}, the new Lagrangian is 
+    \begin{align*}
+        \lag' & = \left(\partial_\mu\phi^\ast + i\partial_\mu\chi^\dagger\sigma^2\epsilon^\ast\right)
+        \left(\partial^\mu\phi - i\epsilon^T\sigma^2\partial^\mu\chi\right)\\
+        & \qquad + \left(\chi^\dagger + \epsilon^\dagger F^\ast + \epsilon^T\sigma^2\sigma\cdot\partial\phi^\ast \right)
+        \left(i\bar{\sigma}\cdot\partial\chi + i\bar{\sigma}\cdot\partial F\epsilon + i\sigma^2\epsilon^\ast\partial^2\phi\right)\\
+        & \qquad + \left(F^\ast + i\partial\chi^\dagger\cdot\bar{\sigma}\epsilon\right)
+        \left(F - i\epsilon^\dagger\bar{\sigma}\cdot\partial\chi\right)\\
+        %
+        & = \lag + i\partial^\mu\phi\partial_\mu\chi^\dagger\sigma^2\epsilon^\ast
+        - i\partial_\mu\phi^\ast\epsilon^T\sigma^2\partial^\mu\chi
+        + \chi^\dagger i\bar{\sigma}\cdot\partial F\epsilon
+        + \chi^\dagger i\sigma^2\epsilon^\ast\partial^2\phi\\
+        & \qquad + \underline{iF^\ast\epsilon^\dagger\bar{\sigma}\cdot\partial\chi}
+        + i\epsilon^T\sigma^2\sigma\cdot\partial\phi^\ast\bar{\sigma}\cdot\partial\chi
+        + iF\partial\chi^\dagger\cdot\bar{\sigma}\epsilon
+        - \underline{iF^\ast\epsilon^\dagger\bar{\sigma}\cdot\partial\chi}\\
+        & \qquad + o(\epsilon)\\
+        %
+        & = \lag + \partial_\mu \left[
+            \chi^\dagger i\sigma^2\epsilon^\ast\partial^\mu\phi
+            + i\phi^\ast\epsilon^T\sigma^2 \left(
+                \sigma^\mu\bar{\sigma}\cdot\partial\chi
+                - \partial^\mu\chi
+            \right)
+            + F\chi^\dagger i\bar{\sigma}^\mu\epsilon
+        \right] + o(\epsilon).
+    \end{align*}
+    So that the Lagrangian is invariant up to a divergence.
+
+    \item Under the transformation \eqref{equ:cp3:susy_sym_trans}, \eqref{equ:cp3:susy_mass_terms} transform as
+    \begin{align*}
+        \Delta\lag & \to m\left(\phi - i\epsilon^T\sigma^2\chi\right)
+        \left(F - i\epsilon^\dagger\bar{\sigma}\cdot\partial\chi\right)\\
+        & \qquad + \frac{1}{2}im
+        \left(
+            \chi^T 
+            + F\epsilon^T 
+            - \epsilon^\dagger\sigma^2\sigma^\ast\cdot\partial\phi
+        \right)
+        \sigma^2
+        \left(
+            \chi 
+            + \epsilon F 
+            + \sigma\cdot\partial\phi\sigma^2\epsilon^\ast
+        \right)
+        + \cc\\
+        %
+        & = \Delta\lag + \left(
+            - im\phi\epsilon^\dagger\bar{\sigma}\cdot\partial\chi
+            - imF\epsilon^T\sigma^2\chi
+            + \frac{1}{2}imF\chi^T\sigma^2\epsilon
+            + \frac{1}{2}im\chi^T\bar{\sigma}^\ast\cdot\partial\phi\epsilon^\ast\right.\\
+            & \qquad \left. + \frac{1}{2}imF\epsilon^T\sigma^2\chi
+            - \frac{1}{2}im\epsilon^\dagger\bar{\sigma}\cdot\partial\phi\chi
+            + \cc
+        \right) + o(\epsilon)\\
+        %
+        & = \Delta\lag + \partial_\mu\left(
+            -im\phi\epsilon^\dagger\bar{\sigma}^\mu\chi + \cc
+        \right) + o(\epsilon),
+    \end{align*}
+    which is invariant up to a total divergence. The full Lagrangian now reads
+    \begin{equation}\label{equ:cp3:susy_massive_lag}
+        \lag = \partial_\mu\phi^\ast\partial^\mu\phi
+        + m (\phi F + \phi^\ast F^\ast)
+        + \chi^\dagger i\bar{\sigma}\cdot\partial\chi
+        + \frac{im}{2}\left(\chi^T\sigma^2\chi - \chi^\dagger\sigma^2\chi\right)
+        + F^\ast F,
+    \end{equation}
+    notice that the fermion part is just \eqref{equ:cp3:majorana_action}, with the mass being $m$. Varying $F^\ast$, we get the equation of motion for $F$:
+    \begin{equation*}
+        F + m\phi^\ast = 0.
+    \end{equation*}
+    Thus \eqref{equ:cp3:susy_massive_lag} becomes
+    \begin{equation*}
+        \lag = \partial_\mu\phi^\ast\partial^\mu\phi
+        - m^2\phi^\ast\phi
+        + \chi^\dagger i\bar{\sigma}\cdot\partial\chi
+        + \frac{im}{2}\left(\chi^T\sigma^2\chi - \chi^\dagger\sigma^2\chi\right).
+    \end{equation*}
+
+    \item The transformation \eqref{equ:cp3:susy_sym_trans} can be generalized as
+    \begin{subequations}\label{equ:cp3:susy_trans_g}
+        \begin{align}
+            \delta\phi_i & = -i\epsilon^T\sigma^2\chi_i,\\
+            \delta\chi_i & = \epsilon F_i + \sigma\cdot\partial\phi_i\sigma^2\epsilon^\ast,\\
+            \delta F_i & = -i\epsilon^\dagger\bar{\sigma}\cdot\partial\chi_i.
+        \end{align}
+    \end{subequations}
+    The first three terms of \eqref{equ:cp3:susy_lag_g} is left invariant, while the rest transforms as
+    \begin{align*}
+        \lag_W & \to \left(
+            F_i - i\epsilon^\dagger\bar{\sigma}\cdot\partial\chi_i
+        \right)
+        \left(
+            \pd{W[\phi]}{\phi_i} 
+            - \pdd{W[\phi]}{\phi_i}{\phi_j}i\epsilon^T\sigma^2\chi_j
+        \right)\\
+        & \qquad + i\pdd{W[\phi]}{\phi_i}{\phi_j}
+        \left(
+            \chi_i^T\sigma^2\chi_j
+            + F_i\epsilon^T\sigma^2\chi_j
+            - \epsilon^\dagger\bar{\sigma}\cdot\partial\phi_i\chi_j    
+        \right) + \cc\\
+        %
+        & = \lag_W + \partial_\mu\left(
+            -i\epsilon^\dagger\bar{\sigma}^\mu\chi_i\pd{W[\phi]}{\phi_i} + \cc    
+        \right) + o(\epsilon),
+    \end{align*}
+    so that \eqref{equ:cp3:susy_lag_g} is invariant under \eqref{equ:cp3:susy_trans_g}. Equation of motion for $F_i$
+    can be obtained by varying $F_i^\ast$ in \eqref{equ:cp3:susy_lag_g}:
+    \begin{equation*}
+        F_i + \left(\pd{W[\phi]}{\phi_i}\right)^\ast = 0.
+    \end{equation*}
+    Substitute $F_i$ and $F_i^\ast$ back to \eqref{equ:cp3:susy_lag_g}, we get
+    \begin{equation*}
+        \lag = \partial_\mu\phi_i^\ast\partial^\mu\phi_i
+        - \left|\pd{W}{\phi_i}\right|^2
+        + \chi_i^\dagger i\bar{\sigma}\cdot\partial\chi_i
+        + \frac{i}{2}\left(
+            \pdd{W}{\phi_i}{\phi_j}\chi_i^T\sigma^2\chi_j
+            - \left(\pdd{W}{\phi_i}{\phi_j}\right)^\ast\chi_i^\dagger\sigma^2\chi_j^\ast
+        \right).
+    \end{equation*}
+    Thus, the field equations of $\phi_i$ and $\chi_i$ are
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            & \partial^2\phi_i + \left(\pd{W}{\phi_j}\right)^\ast
+            \pdd{W}{\phi_j}{\phi_i} = 0,\\
+            & i\bar{\sigma}\cdot\partial\chi_i
+            - i\left(\pdd{W}{\phi_i}{\phi_j}\right)^\ast\sigma^2\chi_j^\ast = 0.
+        \end{aligned}
+        \right.
+    \end{equation*}
+\end{problembody}
+
+\problem \textbf{Fierz transformations.} Let $u_i$, $i = 1, \dots, 4$, be four 4-component Dirac spinors.
+In the text, we proved the Fierz rearrangement formulae (3.78) and (3.79). The first of these formulae can
+be written in 4-component notation as
+\begin{equation*}
+    \bar{u}_1\gamma^\mu\left(\frac{1 + \gamma^5}{2}\right)u_2
+    \bar{u}_3\gamma_\mu\left(\frac{1 + \gamma^5}{2}\right)u_4 = -
+    \bar{u}_1\gamma^\mu\left(\frac{1 + \gamma^5}{2}\right)u_4
+    \bar{u}_3\gamma_\mu\left(\frac{1 + \gamma^5}{2}\right)u_2.
+\end{equation*}
+In fact, therer are similar rearrangement formulae for any product
+\[
+    (\bar{u}_1\Gamma^Au_2)(\bar{u}_3\Gamma^Bu_4),
+\]
+where $\Gamma^A$, $\Gamma^B$ are any of the 16 combinations of Dirac matrices listed in Section 3.4.
+\begin{problembody}
+    \item To begin, normalize the 16 matrices $\Gamma^A$ to the convention
+    \begin{equation}\label{equ:cp3:gamma_convention}
+        \tr\left[\Gamma^A\Gamma^B\right] = 4\delta^{AB}.
+    \end{equation}
+    This gives $\Gamma^A = \{1, \gamma^0, i\gamma^j, \dots\}$; write all 16 elements of this set.
+
+    \item Write the general Fierz identity as an equation
+    \begin{equation}\label{equ:cp3:fierz_trans_g}
+        (\bar{u}_1\Gamma^Au_2)(\bar{u}_3\Gamma^Bu_4) =
+        \sum_{C, D} C^{AB}{}_{CD} (\bar{u}_1\Gamma^Cu_4)(\bar{u}_3\Gamma^Du_2),
+    \end{equation}
+    with unknown coefficients $C^{AB}{}_{CD}$. Using the completeness of the 16 $\Gamma^A$ matrices, show that
+    \begin{equation*}
+        C^{AB}{}_{CD} = \frac{1}{16}\tr\left[\Gamma^C\Gamma^A\Gamma^D\Gamma^B\right].
+    \end{equation*}
+
+    \item Work out explicitly the Fierz transformation laws for the products $(\bar{u}_1u_2)(\bar{u}_3u_4)$ and 
+    $(\bar{u}_1\gamma^\mu u_2)(\bar{u}_3\gamma_\mu u_4)$.
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item To do this, calculate the traces of the products among these 5 sets of matrices. The non-zero traces are:
+    \begin{align*}
+        \tr[1 1] & = 4,\\
+        \tr[\gamma^\mu\gamma^\nu] & = 4g^{\mu\nu},\\
+        \tr[\sigma^{\mu\nu}\sigma^{\alpha\beta}] 
+        & = -\tr[\gamma^{[\mu}\gamma^{\nu]}\gamma^{[\alpha}\gamma^{\beta]}]
+        = 4(g^{\mu\beta}g^{\nu\alpha} - g^{\mu\alpha}g^{\nu\beta}),\\
+        \tr[\gamma^\mu\gamma^5\gamma^\nu\gamma^5] 
+        & = -\tr[\gamma^\mu\gamma^\nu]
+        = -4g^{\mu\nu},\\
+        \tr[\gamma^5\gamma^5] & = 4.
+    \end{align*}
+    The other all vanish, since the trace of any odd number of $\gamma^\mu$ is zero. 
+    In order to maintain \eqref{equ:cp3:gamma_convention}, the elements of $\Gamma^A$ can be chosen as
+    \begin{equation*}
+        \Gamma^A = \{
+            1, \gamma^0, i\gamma^i, \sigma^{0i}, i\sigma^{ij}, 
+            i\gamma^0\gamma^5, \gamma^i\gamma^5, \gamma^5
+        \}.
+    \end{equation*}
+
+    \item \eqref{equ:cp3:fierz_trans_g} is satisfied if the following formula is true:
+    \begin{equation*}
+        (\Gamma^A)_{ab}(\Gamma^B)_{cd}
+        = \sum_{C', D'} C^{AB}{}_{C'D'}(\Gamma^{C'})_{ad}(\Gamma^{D'})_{cb},
+    \end{equation*}
+    where $a, b, c, d$ are Dirac indices.
+    Multiplying $(\Gamma^C)_{da}(\Gamma^D)_{bc}$ on both sides and sum over all Dirac indices, RHS becomes two
+    traces of the form \eqref{equ:cp3:gamma_convention}, exposing $C^{AB}{}_{CD}$:
+    \begin{equation*}
+        C^{AB}{}_{CD} = \frac{1}{16}(\Gamma^A)_{ab}(\Gamma^B)_{cd}(\Gamma^C)_{da}(\Gamma^D)_{bc}
+        = \frac{1}{16}\tr[\Gamma^C\Gamma^A\Gamma^D\Gamma^B].
+    \end{equation*}
+    Notice that we haven't used the fact that the $u$'s are Dirac spinors, they are only required to be $1\times 4$ matrices.
+    Also, we have only used the completeness relations of the two matrices on the RHS, while the two on the LHS can actually
+    be any $4\times 4$ matrix. Thus \eqref{equ:cp3:fierz_trans_g} can be generalized to
+    \begin{equation}\label{equ:cp3:fierz_trans_2}
+        (\bar{u}_1 \Gamma_1 u_2)(\bar{u}_3 \Gamma_2 u_4) =
+        \sum_{A, B} C_{AB} (\bar{u}_1\Gamma^Au_4)(\bar{u}_3\Gamma^Au_2),
+    \end{equation}
+    with $C_{AB} = \frac{1}{16}\tr[\Gamma^C\Gamma_1\Gamma^D\Gamma_2]$ and $\Gamma_1$ and $\Gamma_2$ are two matrices.
+
+    \item For the first product, let $\Gamma^A = \Gamma^B = 1$, then $C^{AB}{}_{CD} = \frac{1}{16}\tr[\Gamma^C\Gamma^D] = \frac{1}{4}\delta^{CD}$.
+    Thus
+    \begin{align*}
+        (\bar{u}_1u_2)(\bar{u}_3u_4) & = \frac{1}{4}\sum_C (\bar{u}_1\Gamma^Cu_4)(\bar{u}_3\Gamma^Cu_2)\\
+        & = \frac{1}{4}\left[
+            (\bar{u}_1u_4)(\bar{u}_3u_2) 
+            + (\bar{u}_1\gamma^\mu u_4)(\bar{u}_3\gamma_\mu u_2)
+            - \frac{1}{2}(\bar{u}_1\sigma^{\mu\nu}u_4)(\bar{u}_3\sigma_{\mu\nu}u_2)\right.\\
+            & \qquad \left.- (\bar{u}_1\gamma^\mu\gamma^5u_4)(\bar{u}_3\gamma_\mu\gamma^5u_2)
+            + (\bar{u}_1\gamma^5u_4)(\bar{u}_3\gamma^5u_2)
+        \right].
+    \end{align*}
+    For the second one, set $\Gamma_1 = \gamma^\mu$ and $\Gamma_2 = \gamma_\mu$ in \eqref{equ:cp3:fierz_trans_2}, the coefficients are
+    \begin{equation*}
+        C_{AB} = \frac{1}{16}\tr[\Gamma^A\gamma^\mu\Gamma^B\gamma_\mu].
+    \end{equation*}
+    The non-zero traces related to $C_{AB}$ are:
+    \begin{align*}
+        \tr[1\gamma^\mu 1\gamma_\mu] & = 4,\\
+        \tr[\gamma^\alpha\gamma^\mu\gamma^\beta\gamma_\mu] & = -8g^{\alpha\beta},\\
+        % \tr[\sigma^{\alpha\beta}\gamma^\mu\sigma^{\nu\rho}\gamma_\mu] 
+        % & = -8\tr[\sigma^{\alpha\beta}\sigma^{\nu\rho}]
+        % = 32(g^{\alpha\nu}g^{\beta\rho} - g^{\alpha\rho}g^{\beta\nu}),\\
+        \tr[(\gamma^\alpha\gamma^5)\gamma^\mu(\gamma^\beta\gamma^5)\gamma_\mu]
+        & = -8g^{\alpha\beta},\\
+        \tr[\gamma^5\gamma^\mu\gamma^5\gamma_\mu] & = -4.
+    \end{align*}
+    Express these in terms of elements in $\{\Gamma^A\}$:
+    \begin{align*}
+        \tr[1\gamma^\mu 1\gamma_\mu] & = 4,\\
+        \tr[\gamma^0\gamma^\mu\gamma^0\gamma_\mu] & = -8,\\
+        \tr[(i\gamma^i)\gamma^\mu(i\gamma^i)\gamma_\mu] & = -8,\\
+        % \tr[\sigma^{0i}\gamma^\mu\sigma^{0i}\gamma_\mu] & = -32,\\
+        % \tr[(i\sigma^{ij})\sigma^\mu(i\sigma^{ij})\gamma_\mu] & = -32,\\
+        \tr[(i\gamma^0\gamma^5)\gamma^\mu(i\gamma^0\gamma^5)\gamma_\mu] & = 8,\\
+        \tr[(\gamma^i\gamma^5)\gamma^\mu(\gamma^i\gamma^5)\gamma_\mu] & = 8,\\
+        \tr[\gamma^5\gamma^\mu\gamma^5\gamma_\mu] & = -4.
+    \end{align*}
+    Thus
+    \begin{align*}
+        (\bar{u}_1\gamma^\mu u_2)(\bar{u}_3\gamma_\mu u_4) & = 
+        \frac{1}{4}(\bar{u}_1u_4)(\bar{u}_3u_2)
+        - \frac{1}{2}(\bar{u}_1\gamma^\mu u_4)(\bar{u}_3\gamma_\mu u_2)\\
+        & \qquad - \frac{1}{2}(\bar{u}_1\gamma^\mu\gamma^5u_4)(\bar{u}_3\gamma_\mu\gamma^5u_2)
+        - \frac{1}{4}(\bar{u}_1\gamma^5u_4)(\bar{u}_3\gamma^5u_2).
+    \end{align*}
+\end{problembody}
+
+\problem This problem concerns the dsicrete symmetries \textit{P}, \textit{C}, and \textit{T}.
+\begin{problembody}
+    \item Compute the transformation properties under $P$, $C$, and $T$ of the antisymmetric
+    tensor fermion bilinears, $\bar{\psi}\sigma^{\mu\nu}\psi$, with $\sigma^{\mu\nu} = \frac{i}{2}[\gamma^\mu, \gamma^\nu]$.
+    This completes the table of the transformation properties of bilinears at the end of the chapter.
+
+    \item Let $\phi(x)$ be a complex-valued Klein-Gordon field, such as we considered in Problem 2.2.
+    Find unitary operators $P$, $C$ and an antiunitary operator $T$ (all defined in terms of their action
+    on the annihilation operators $a_p$ and $b_p$ for the Klein-Gordon particles and antiparticles) that
+    give the following transformations of the Klein-Gordon field:
+    \begin{align*}
+        P\phi(t, \vec{x})P & = \phi(t, -\vec{x});\\
+        T\phi(t, \vec{x})T & = \phi(-t, \vec{x});\\
+        C\phi(t, \vec{x})C & = \phi^\ast(t, \vec{x}).
+    \end{align*}
+    Find the transformation properties of the components of the current
+    \begin{equation*}
+        J^\mu = i(\phi^\ast\partial^\mu\phi - \partial^\mu\phi^\ast\phi)
+    \end{equation*}
+    under $P$, $C$, and $T$.
+
+    \item Show that any Hermitian Lorentz scalar local operator built from $\psi(x)$, $\phi(x)$, and their conjugates
+    has $CPT = +1$.
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item 
+    \begin{align*}
+        P\bar{\psi}\sigma^{\mu\nu}\psi P
+        = i\bar{\psi}\gamma^0\gamma^{[\mu}\gamma^{\nu]}\gamma^0\psi
+        = \begin{cases}
+            -\bar{\psi}\sigma^{\mu\nu}\psi \qquad & (\mu = 0, \nu = i)\\
+            +\bar{\psi}\sigma^{\mu\nu}\psi \qquad & (\mu = i, \nu = j)
+        \end{cases}.
+    \end{align*}
+    For time reversal, when $\mu = 0, \nu = i$,
+    \begin{align*}
+        T\bar{\psi}\sigma^{0i}\psi T
+        = \bar{\psi}\gamma^3\gamma^1(\sigma^{0i})^\ast\gamma^1\gamma^3\psi
+        = -i\bar{\psi}\gamma^3\gamma^1\gamma^2\gamma^{[0}\gamma^{i]}\gamma^2\gamma^1\gamma^3\psi
+        = \bar{\psi}\sigma^{0i}\psi,
+    \end{align*}
+    when $\mu = i, \nu = j$,
+    \begin{equation*}
+        T\bar{\psi}\sigma^{ij}\psi T
+        = -i\bar{\psi}\gamma^3\gamma^1\gamma^2\gamma^{[i}\gamma^{j]}\gamma^2\gamma^1\gamma^3\psi
+        = -\bar{\psi}\sigma^{ij}\psi,
+    \end{equation*}
+    where we have used $\gamma^{i\ast} = -\gamma^2\gamma^i\gamma^2$. Thus
+    \begin{equation*}
+        T\bar{\psi}\sigma^{\mu\nu}\psi T = \begin{cases}
+            +\bar{\psi}\sigma^{\mu\nu}\psi \qquad (\mu = 0, \nu = i)\\
+            -\bar{\psi}\sigma^{\mu\nu}\psi \qquad (\mu = i, \nu = j)
+        \end{cases}.
+    \end{equation*}
+    As for charge conjugation,
+    \begin{align*}
+        C\bar{\psi}\sigma^{\mu\nu}\psi C
+        = -(\gamma^0\gamma^2\psi)^T\sigma^{\mu\nu}(\bar{\psi}\gamma^0\gamma^2)^T
+        = \bar{\psi}\gamma^0\gamma^2(\sigma^{\mu\nu})^T\gamma^0\gamma^2\psi.
+    \end{align*}
+    When $\mu = 0, \nu = i$:
+    \begin{equation*}
+        C\bar{\psi}\sigma^{0i}\psi C
+        = -i\bar{\psi}\gamma^0\gamma^2\gamma^2\gamma^{[i}\gamma^{|2|}\gamma^{0]}\gamma^0\gamma^2\psi
+        = -\bar{\psi}\sigma^{0i}\psi,
+    \end{equation*}
+    when $\mu = i, \nu = j$:
+    \begin{equation*}
+        C\bar{\psi}\sigma^{ij}\psi C
+        = i\bar{\psi}\gamma^0\gamma^2\gamma^2\gamma^{[j}\gamma^{i]}\gamma^2\gamma^0\gamma^2\psi
+        = -\bar{\psi}\sigma^{ij}\psi.
+    \end{equation*}
+    Thus 
+    \[
+        C\bar{\psi}\sigma^{\mu\nu}\psi C
+        = -\bar{\psi}\sigma^{\mu\nu}\psi.
+    \]
+
+    \item As \eqref{equ:cp2:phi_expand}, expand $\phi(x)$ as
+    \[
+        \phi(x) = \sum_k \left(a_k\varphi_k + b_k^\dagger\varphi_k^\ast\right).    
+    \]
+    Define the three operators by their action on the ladder operators $a_k$ and $b_k$:
+    \begin{align*}
+        P a_k P = a_{\bar{k}}, &\qquad P b_k P = b_{\bar{k}},\\
+        T a_k T = a_{\bar{k}}, &\qquad T b_k T = b_{\bar{k}},\\
+        C a_k C = b_k, &\qquad C b_k C = a_k,
+    \end{align*}
+    where $\bar{k} = (\omega_k, -\vec{k})$, and remember $T$ is antiunitary. Thus the actions of
+    $C$, $P$ and $T$ on $\phi(x)$ are
+    \begin{align*}
+        P\phi(t, \vec{x})P & = \sum_k \left(
+            a_{\bar{k}}\varphi_k + b_{\bar{k}}^\dagger\varphi_k^\ast    
+        \right)(t, \vec{x})
+        = \sum_k \left(
+            a_k\varphi_k + b_k^\dagger\varphi_k^\ast
+        \right)(t, -\vec{x}) = \phi(t, -\vec{x}),\\
+        %
+        T \phi(t, \vec{x}) T & = \sum_k \left(
+            a_{\bar{k}}\varphi_k^\ast + b_{\bar{k}}^\dagger\varphi_k
+        \right)(t, \vec{x}) = \sum_k\left(
+            a_k\varphi_k + b_k^\dagger\varphi_k^\ast
+        \right)(-t, \vec{x}) = \phi(-t, \vec{x}),\\
+        %
+        C \phi(t, \vec{x}) C & = \sum_k \left(
+            b_k\varphi_k + a_k^\dagger\varphi_k^\ast
+        \right)(t, \vec{x}) = \phi^\ast(t, \vec{x}).
+    \end{align*}
+    The transformation properties of $J^\mu$ are
+    \begin{align*}
+        P J^\mu(t, \vec{x}) P & = (-1)^\mu J^\mu(t, -\vec{x}),\\
+        T J^\mu(t, \vec{x}) T & 
+        = -i[-(-1)^\mu] (\phi^\ast\partial^\mu\phi - \partial^\mu\phi^\ast\phi)(-t, \vec{x})
+        = (-1)^\mu J^\mu(-t, \vec{x}),\\
+        C J^\mu(t, \vec{x}) C & 
+        = i(\phi\partial^\mu\phi^\ast - \partial^\mu\phi\phi^\ast)
+        = -J^\mu(t, \vec{x}),
+    \end{align*}
+    where $(-1)^\mu \equiv (1, -1, -1, -1)$.
+
+    \item Any Hermitian Lorentz invariant operator must be built from a set of operators that are
+    simutaneously Hermitian and Lorentz invariant. The Lorentz invariant operators are:
+    \begin{equation*}
+        \bar{\psi}\psi, \bar{\psi}\gamma^\mu\psi, \bar{\psi}\sigma^{\mu\nu}\psi,
+        i\bar{\psi}\gamma^\mu\gamma^5\psi, \bar{\psi}\gamma^5\psi, |\phi|^2.
+    \end{equation*}
+    Except $\bar{\psi}\gamma^\mu\gamma^5\psi$ and $\bar{\psi}\gamma^\mu\psi$ have $CPT = -1$, others all has $CPT = +1$. But these two 
+    must contract with each other to form a scalar operator, thus guarentees the operator has $CPT = +1$.
+\end{problembody}
+
+\problem \textbf{Bound states.} Two spin-$1/2$ particles can combine to a state of total spin either 0 or 1. The 
+wave function for these states are odd and even, respectively, under interchange of the two spins.
+\begin{problembody}
+    \item Use this information to compute the quantum numbers under $P$ and $C$ of all electron-positron
+    bound states with $S$, $P$, or $D$ wavefunctions.
+
+    \item Since the electron-photon coupling is given by the Hamitonian
+    \begin{equation*}
+        \Delta H = \int \, \dd^3x \, e A_\mu j^\mu,
+    \end{equation*}
+    where $j^\mu$ is the electric current, electrodynamics is invariant to $P$ and $C$ if the components of the vector
+    potential have the same $P$ and $C$ parity as the corresponding components of $j^\mu$. Show that this implies the
+    following surprising fact: The spin-0 ground state of positronium can decay to 2 photons, but the spin-1 ground state
+    must decay to 3 photons. Find the selection rules for the annihilation of higher positronium states, and for 1-photon
+    transitions between positronium levels.
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item The spacial wavefunction of a system with an electron and positron can be written as
+    \begin{equation*}
+        \Psi(\vec{r}_{e-}, \vec{r}_{e+}) = \psi(\vec{r})\Phi(\vec{R}), 
+        \qquad \text{where} \, \vec{r} = \vec{r}_{e-} - \vec{e+},
+        \vec{R} = \frac{\vec{e-} + \vec{e+}}{2}.
+    \end{equation*}
+    $\Phi(\vec{R})$ represents the motion of the centre of mass, $\psi(\vec{r})$ represents the relative motion between
+    the electron and the positron, i.e., the internal state of the positronium. The bound state can now be written as
+    \begin{equation*}
+        \ket{B} = \sqrt{2M_B}\sum_{k, m_1, m_2}\frac{1}{\sqrt{V}}
+        \tilde{\psi}_{nlm}(\vec{k})\chi_{ij}^s 
+        a_{\vec{k}}^{i\dagger} b_{-\vec{k}}^{j\dagger}
+        \ket{0},
+    \end{equation*}
+    where $M_B$ is the mass of the positronium, and $\tilde{\psi}_{nlm}(\vec{k})$ is the positronium wave function in momentum space:
+    \begin{equation*}
+        \tilde{\psi}_{nlm}(\vec{k}) = \int \dd^3x \, 
+        e^{-i\vec{k}\cdot\vec{r}}
+        \psi_{nlm}(\vec{k} / 2)
+    \end{equation*}
+    and $\chi_{ij}^s$ is the spin wavefunction, satisfies $\chi_{ji}^s = (-1)^{s + 1}\chi_{ij}^s$ according to the information.
+    The actions of $P$ and $C$ on $\ket{B}$ are
+    \begin{align*}
+        P\ket{B} & = -\sum_{k, i, j}\frac{1}{\sqrt{V}}
+        \tilde{\psi}_{nlm}(\vec{k})\chi_{ij}^s 
+        a_{-\vec{k}}^{i\dagger} b_{\vec{k}}^{j\dagger}
+        \ket{0}\\
+        & = -\sum_{k, i, j}\frac{1}{\sqrt{V}}
+        \tilde{\psi}_{nlm}(-\vec{k})\chi_{ij}^s 
+        a_{\vec{k}}^{i\dagger} b_{-\vec{k}}^{j\dagger}
+        \ket{0} = (-1)^{l + 1}\ket{B},\\
+        %
+        C\ket{B} & = \sum_{k, i, j}\frac{1}{\sqrt{V}}
+        \tilde{\psi}_{nlm}(\vec{k})\chi_{ij}^s 
+        b_{\vec{k}}^{i\dagger} a_{-\vec{k}}^{j\dagger}
+        \ket{0}\\
+        & = -\sum_{k, i, j}\frac{1}{\sqrt{V}}
+        \tilde{\psi}_{nlm}(-\vec{k})\chi_{ji}^s 
+        a_{\vec{k}}^{i\dagger} b_{-\vec{k}}^{j\dagger}
+        \ket{0} = (-1)^{l + s}\ket{B}.
+    \end{align*}
+
+    \item The actions of $P$ and $C$ on $j^\mu$ are
+    \begin{equation*}
+        Pj^\mu P = (-1)^\mu j^\mu, \qquad Cj^\mu C = -j^\mu,
+    \end{equation*}
+    so the action on $A_\mu$ is the same
+    \begin{equation*}
+        PA^\mu P = (-1)^\mu A^\mu, \qquad CA^\mu C = -A^\mu.
+    \end{equation*}
+    To find the action of $P$ and $C$ on photon states, expand $A^\mu$ in terms of ladder operators as
+    \begin{equation*}
+        A^\mu = \sum_{k, \sigma} \left(
+            a_k^\sigma\epsilon_\sigma^\mu(k)\varphi_k
+            + a_k^{\sigma\dagger}\epsilon_\sigma^{\mu\ast}(k)\varphi_k^\ast
+        \right),
+    \end{equation*}
+    where $\epsilon_\sigma^\mu(k)$ are the polarization vectors, $\sigma = 0, 1$ corresponds to scalar 
+    and longlitude polarization, they are unphysical states, while $\sigma = 2, 3$ corresponds to 
+    two physical polarization states, left handed and right handed, respectively. It also satisfies 
+    $\epsilon_\sigma^\mu(-k) = (-1)^\sigma\epsilon_\sigma^\mu$, where $(-k)^\mu = (\omega_k, -\vec{k})$.
+    Thus, $a_k^{2\dagger}$ and $a_k^{3\dagger}$ creates left hand and right hand polarized photons 
+    respectively, the actions of $P$ and $C$ on them are
+    \begin{equation*}
+        P a_k^\sigma P = a_{-k}^\sigma, \qquad C a_k^\sigma C = -a_k^\sigma,
+    \end{equation*}
+    with $\sigma = 2, 3$. That is, a photon has parity $+1$ and charge conjugate $-1$. Any state could be 
+    written as a series of creation operators acting on the vacuum $\ket{0}$, so a state with $n$ photons has
+    parity $+1$ and charge conjugate $(-1)^n$. The amplitude of a process is given by the \textit{scattering matrix} $S$,
+    whose elements are given by
+    \begin{equation}\label{equ:cp3:s_matrix_def}
+        S_{fi} = \bra{\phi_f}S\ket{\phi_i} = \inner{\psi^+_f}{\psi^-_i},
+    \end{equation}
+    where $\ket{\psi^\pm_a}$ are the in and out states, they are related to the free states $\ket{\phi_a}$ by
+    the Lippmann-Swinger equation
+    \begin{equation*}
+        \ket{\psi^\pm_a} = \ket{\phi_a} 
+        + \frac{1}{E_a - H_0 \pm i\epsilon} V \ket{\psi^\pm_a},
+    \end{equation*}
+    where $H_0$ is the free Hamitonian, and $V$ is the interaction, i.e., $\Delta H$. Thus, if an operator commutes
+    with both $H_0$ and $V$, its action on $\ket{\psi^\pm_a}$ is exactly the same as on the corresponding free state.
+    Suppose the action of one of such operators $F$ on $\ket{\phi_a}$ is
+    \begin{equation*}
+        F\ket{\phi_a} = \eta_a\ket{\phi_{Fa}},
+    \end{equation*}
+    where $\eta_a$ is some phase, for $F = P$, $\eta_a$ is the product of parities of all particles in that state. Then 
+    its action on $\ket{\psi^\pm_a}$ is just the same. Substitute it into \eqref{equ:cp3:s_matrix_def} gives
+    \begin{equation}\label{equ:cp3:s_trans}
+        S_{fi} = \eta_i \eta_f^\ast S_{Ff, Fi}.
+    \end{equation}
+    Now apply \eqref{equ:cp3:s_trans} to this problem. Let the final state be $n$ photons with definate momenta and polarizations,
+    for $F = P$, the initial state is an eigent state of $F$, with $\eta_i = (-1)^{l + 1}$. While the final state is not 
+    always an eigent state of $F$, and $\eta_f = 1$. Thus \eqref{equ:cp3:s_trans} tells us that when $l$ of the positronium is
+    even (or odd), the scattering matrix element must be odd (or even) under the inverse of every final state momenta. 
+
+    For the charge conjugate, both the initial state and final state are eigent state of $F$, so in order for $S_{fi}$ not to vanish,
+    we must have $\eta_i \eta_f^\ast = (-1)^{l + s + n} = 1$. Thus, the ground spin-0 state can decay into an even number of photons, 
+    while spin-1 can decay to an odd number of photons, and the leading decay mode is three photons, other modes are negligible.
 \end{problembody}
