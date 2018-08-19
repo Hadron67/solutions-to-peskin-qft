@@ -232,7 +232,7 @@ This set of convensions define defines the phase of spinors unambiguously (excep
     \end{equation*}
     where $E_p = |\vec{p}|$.
 
-    \item By defination,
+    \item By definition,
     \begin{equation*}
         s(p_1, p_2) = \frac{
             E_{p1}(ip_{2y} - p_{2x}) + E_{p2}(p_{1x} - ip_{1y}) + ip_{1z}p_{2y}
@@ -539,7 +539,7 @@ that transforms as the upper two components of a Dirac spinor ($\psi_L$). Call s
     \begin{equation*}
         \pi_a = \pd{\lag}{\dot{\chi_a}} = -i\chi_a^\dagger.
     \end{equation*}
-    Now construct the Hamitonian. To do this, we could use the defination $H = \sum_i p_i\dot{x_i} - L$. However, since we are working with Grassmann fields, the order of $p$ and $\dot{x}$ in the first term is not clear. But the
+    Now construct the Hamitonian. To do this, we could use the definition $H = \sum_i p_i\dot{x_i} - L$. However, since we are working with Grassmann fields, the order of $p$ and $\dot{x}$ in the first term is not clear. But the
     Hamitonian should reproduce \eqref{equ:cp3:majorana_eq} when substitute into Heisenburg equation, from this point we can construct the Hamitonian as
     \begin{equation}\label{equ:cp3:hamitonian_marjorana}
         H = \int \dd^3x \, \left[
@@ -1036,7 +1036,7 @@ wave function for these states are odd and even, respectively, under interchange
     $\Phi(\vec{R})$ represents the motion of the centre of mass, $\psi(\vec{r})$ represents the relative motion between
     the electron and the positron, i.e., the internal state of the positronium. The bound state can now be written as
     \begin{equation*}
-        \ket{B} = \sqrt{2M_B}\sum_{k, m_1, m_2}\frac{1}{\sqrt{V}}
+        \ket{B} = \sqrt{2M_B}\sum_{k, i, j}\frac{1}{\sqrt{V}}
         \tilde{\psi}_{nlm}(\vec{k})\chi_{ij}^s 
         a_{\vec{k}}^{i\dagger} b_{-\vec{k}}^{j\dagger}
         \ket{0},
@@ -1044,8 +1044,8 @@ wave function for these states are odd and even, respectively, under interchange
     where $M_B$ is the mass of the positronium, and $\tilde{\psi}_{nlm}(\vec{k})$ is the positronium wave function in momentum space:
     \begin{equation*}
         \tilde{\psi}_{nlm}(\vec{k}) = \int \dd^3x \, 
-        e^{-i\vec{k}\cdot\vec{r}}
-        \psi_{nlm}(\vec{k} / 2)
+        e^{-i\vec{k}\cdot\vec{x}}
+        \psi_{nlm}(\vec{x} / 2),
     \end{equation*}
     and $\chi_{ij}^s$ is the spin wavefunction, satisfies $\chi_{ji}^s = (-1)^{s + 1}\chi_{ij}^s$ according to the information.
     The actions of $P$ and $C$ on $\ket{B}$ are
@@ -1095,7 +1095,10 @@ wave function for these states are odd and even, respectively, under interchange
     \end{equation*}
     with $\sigma = 2, 3$. That is, a photon has parity $+1$ and charge conjugate $-1$. Any state could be 
     written as a series of creation operators acting on the vacuum $\ket{0}$, so a state with $n$ photons has
-    parity $+1$ and charge conjugate $(-1)^n$. The amplitude of a process is given by the \textit{scattering matrix} $S$,
+    parity $+1$ and charge conjugate $(-1)^n$. 
+    
+    Now analyse the restrictions these symmetries could have on electrodynamics processes. The following derivation
+    can be found in \cite{WeinBergQFT}. The amplitude of a process is given by the \textit{scattering matrix} $S$,
     whose elements are given by
     \begin{equation}\label{equ:cp3:s_matrix_def}
         S_{fi} = \bra{\phi_f}S\ket{\phi_i} = \inner{\psi^+_f}{\psi^-_i},
@@ -1124,5 +1127,5 @@ wave function for these states are odd and even, respectively, under interchange
 
     For the charge conjugate, both the initial state and final state are eigent state of $F$, so in order for $S_{fi}$ not to vanish,
     we must have $\eta_i \eta_f^\ast = (-1)^{l + s + n} = 1$. Thus, the ground spin-0 state can decay into an even number of photons, 
-    while spin-1 can decay to an odd number of photons, and the leading decay mode is three photons, other modes are negligible.
+    while spin-1 can decay to an odd number of photons, and the leading decay mode is three photons, other modes are negligible \cite{DecaysOfPositronium}.
 \end{problembody}

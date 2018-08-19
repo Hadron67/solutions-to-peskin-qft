@@ -1,12 +1,102 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage[a4paper, margin = 1in]{geometry}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{latexsym}
 \usepackage{slashed}
+\usepackage[compat = 1.1.0]{tikz-feynman}
+\usepackage{simpler-wick}
+
+%tikz configuration
+\usetikzlibrary{
+    external, 
+    shapes.misc, 
+    decorations.markings,
+    decorations.pathreplacing,
+    calc
+}
+\tikzexternalize[
+    prefix = tikz-img/,
+    system call = {
+        lualatex \tikzexternalcheckshellescape -interaction=nonstopmode -jobname="\image" "\texsource" || rm "\image.pdf"
+    }
+]
+\tikzfeynmanset{warn luatex = false}
+\tikzset {
+    single line/.style = {},
+    double line/.style = {double distance = 1pt},
+    vertex/.style = {circle, fill, inner sep = 1pt},
+    empty/.style = {inner sep = 1pt},
+    cross vertex/.style = {cross out, draw, inner sep = 2pt, thick},
+    %
+    on each segment/.style={
+        decorate,
+        decoration={
+            show path construction,
+            moveto code={},
+            lineto code={
+                \draw [#1]
+                (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+            },
+            curveto code={
+                \draw [#1] (\tikzinputsegmentfirst)
+                .. controls
+                (\tikzinputsegmentsupporta) and (\tikzinputsegmentsupportb)
+                ..
+                (\tikzinputsegmentlast);
+            },
+            closepath code={
+                \draw [#1]
+                (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+            },
+        },
+    },
+    mid arrow/.style = {
+        postaction = {
+            decorate,
+            decoration = {
+                markings,
+                mark = at position .5 with {#1}
+            }
+        }
+    },
+    inserted arrow/.pic = {
+        \draw [arrows = {-Latex[length = 6pt 0 0]}] (0pt, 0) -- ++(3pt, 0);
+    },
+    text/.style = {
+        insert path = {
+            node[
+                midway, 
+                label = above:#1,
+                sloped,
+                allow upside down,
+                label distance = 1pt
+            ]{}
+        }
+    },
+    texti/.style = {
+        insert path = {
+            node[
+                midway, 
+                label = below:#1,
+                sloped,
+                allow upside down,
+                label distance = 1pt
+            ]{}
+        }
+    },
+    arrowed/.style={
+        insert path = {
+            pic[midway, sloped, allow upside down]{inserted arrow}
+            % node[midway,sloped,allow upside down]{\tikz{ \draw[#1] (-.2pt,0) -- ++(.2 pt,0);}}
+        }
+    }
+}
 
 % math
 \newcommand{\dd}{\mathrm{d}}
+\newcommand{\df}[2]{\frac{\dd #1}{\dd #2}}
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pdd}[3]{\frac{\partial^2 #1}{\partial #2\partial #3}}
 \newcommand{\hodge}{{}^\star}
@@ -17,10 +107,14 @@
 \newcommand{\ket}[1]{\left|#1\right\rangle}
 \newcommand{\bra}[1]{\left\langle #1\right|}
 \newcommand{\inner}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\bigo}{\mathcal{O}}
+\newcommand{\ims}{\mathcal{M}}
 % counter for problems
 \newcounter{problemCounter}[section]
 \newcommand{\problem}{\stepcounter{problemCounter}\noindent\textbf{\arabic{section}.\arabic{problemCounter}} \quad}
-\newcommand{\solution}{\noindent\textbf{Solutions for \arabic{section}.\arabic{problemCounter}}}
+\newcommand{\solution}{\noindent\textbf{Solutions for \arabic{section}.\arabic{problemCounter}}\quad}
 \newenvironment{problembody}
 {\begin{enumerate}[label = (\alph*), ref = (\alph*)]}
 {\end{enumerate}}
@@ -44,4 +138,8 @@
 \maketitle
 \include{chapter2}
 \include{chapter3}
+\include{chapter4}
+
+\bibliographystyle{plain}
+\bibliography{cite}
 \end{document}

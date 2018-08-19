@@ -1,6 +1,11 @@
+tikz-img/**
+
 *.aux
 *.fdb_latexmk
 *.fls
 *.log
 *.gz
 *.pdf
+*.auxlock
+*.bbl
+*.blg

@@ -1,0 +1,459 @@
+\problem \textbf{Linear sigma model.} The interactions of pions at low energy can be described
+by a phenomenological model called the \textit{linear sigma model}. Essentially, this model 
+consists of $N$ real scalar fields coupled by a $\phi^4$ interaction that is symmetric under 
+rotations of the $N$ fields. More specifically, let $\Phi^i(x)$, $i = 1, \cdots, N$ be a set of 
+$N$ fields, governed by the Hamitonian
+\begin{equation*}
+    H = \int \dd^3x \, \left(
+        \frac{1}{2}(\Pi^i)^2 + \frac{1}{2}(\nabla\Phi^i)^2 + V(\Phi^2)    
+    \right),
+\end{equation*}
+where $(\Phi^i)^2 = \Phi\cdot\Phi$, and
+\begin{equation*}
+    V(\Phi^2) = \frac{1}{2}m^2(\Phi^i)^2 
+    + \frac{\lambda}{4}\left((\Phi^i)^2\right)^2
+\end{equation*}
+is a function symmetric under rotations of $\Phi$. For (classical) field configurations of $\Phi^i(x)$
+that are constant in space and time, this term gives the only contribution to $H$; hence, $V$ is the field
+potential energy.
+
+(What does this Hamitonian have to do with the strong interactions? There are two types of light quarks, 
+$u$ and $d$. These quarks have identical strong interactions, but different masses. If these quarks are
+massless. If these quarks are massless, the Hamitonian of the strong interactions is invariant to unitary
+transformations of the 2-component object $(u, d)$:
+\begin{equation*}
+    \begin{pmatrix}
+        u \\ d
+    \end{pmatrix} \to \exp(i\vec{\alpha}\cdot\vec{\sigma} / 2)
+    \begin{pmatrix}
+        u \\ d
+    \end{pmatrix}.
+\end{equation*}
+This is transformation is called an \textit{isospin} rotation. If, in addition, the strong interactions 
+are described by a vector ``gluon'' field (as is true in QCD), the strong interaction Hamitonian is invariant
+to the isospin rotations done separately on the left-handed and right handed components of the quark fields.
+Thus, the complete symmetry of QCD with two massless quarks is $SU(2)\times SU(2)$. It happens that $SO(4)$,
+the group of rotations in 4 dimensions, is isomorphic to $SU(2)\times SU(2)$
+\footnote{I wonder if this is a mistake, or expressed wrongly, since $SO(4)$ is not a direct product of Lie groups.}, 
+so for $N = 4$, the linear 
+sigma model has the same symmetry group as the strong interactions.)
+\begin{problembody}
+    \item Analyze the linear sigma model for $m^2 > 0$ by noticing that, for $\lambda = 0$, the Hamitonian
+    given above is exactly $N$ copies of the Klein-Gordon Hamitonian. We can the calculate scattering amplitudes
+    as perturbation series in the parameter $\lambda$. Show that the propagator is
+    \begin{equation*}
+        \wick{\c \Phi^i(x) \c \Phi^j(y)} = \delta^{ij}D_F(x - y),
+    \end{equation*}
+    where $D_F$ is the standard Klein-Gordon propagator for mass $m$, and that there is one type of vertex gien 
+    by
+    \begin{equation*}
+        \begin{tikzpicture}[baseline = (o.south)]
+            \node (k) at (-1,  1) {$k$};
+            \node (l) at ( 1,  1) {$l$};
+            \node (i) at (-1, -1) {$i$};
+            \node (j) at ( 1, -1) {$j$};
+            \draw (k) -- (0, 0) -- (l);
+            \draw (i) -- (0, 0) -- (j);
+            \node (o) [vertex] at (0, 0) {};
+        \end{tikzpicture}
+        = -2i\lambda(
+            \delta^{ij}\delta^{kl}
+            + \delta^{il}\delta^{jk}
+            + \delta^{ik}\delta^{jl}
+        ).
+    \end{equation*}
+    (That is, the vertex between two $\Phi^1$s and two $\Phi^2$s has the value $(-2i\lambda)$; that between four 
+    $\Phi^1$s has the value $(-6i\lambda)$.) Compute, to leading order in $\lambda$, the differential cross sections 
+    $\dd\sigma / \dd\Omega$, in the center of mass frame, for the scattering processes
+    \begin{equation*}
+        \Phi^1\Phi^2 \to \Phi^1\Phi^2, 
+        \qquad \Phi^1\Phi^1 \to \Phi^2\Phi^2,
+        \qquad \text{and} \qquad
+        \Phi^1\Phi^1 \to \Phi^1\Phi^1
+    \end{equation*}
+    as functions of the center-of-mass energy.
+
+    \item Now consider the case $m^2 < 0$: $m^2 = -\mu^2$. In this case, $V$ has a local maximum, rather than a minimum,
+    at $\Phi^i = 0$. Since $V$ is a potential energy, this implies that the ground state of the theory is not near $\Phi^i = 0$
+    but rather is obtained by shifting $\Phi^i$ toward the minimum of $V$. By rotational invariance, we can consider this 
+    shift to be in the $N$th direction. Write, then,
+    \begin{align*}
+        \Phi^i(x) & = \pi^i(x), \qquad i = 1, \cdots, N - 1,\\
+        \Phi^N(x) & = v + \sigma(x),
+    \end{align*}
+    where $v$ is a constant chosen to minimize $V$. (The notation $\pi^i$ suggests a poin field and should not be confused
+    with a canonical momentum.) Show that, in these new coordinates (and substituting for $v$ its expression in terms of $\lambda$
+    and $\mu$), we have a theory of a massive $\sigma$ field and $N - 1$ \textit{massless} pion fields, interacting through 
+    cubic and quartic potential energy terms which all become small as $\lambda \to 0$. Construct the Feynman rules by assigning
+    values to the propagators and vertices:
+    \begin{align*}
+        \wick{\c \sigma \c \sigma} & = \qquad
+        \begin{tikzpicture}[baseline = (o.south)]
+            \node (o) [empty]  at (0, 0) {};
+            \draw [double line] (0, 0) -- (1.5, 0) [arrowed];
+        \end{tikzpicture}
+        \qquad\qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \node (i) at (-150:1.3) {$i$};
+            \node (j) at ( -30:1.3) {$j$};
+            \draw (-150:1) -- (0, 0) -- (-30:1);
+            \draw [double line] (0, 1) -- (0, 0);
+            \node (o) [vertex] at (0, 0) {};
+        \end{tikzpicture}
+        \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \node (k) [empty] at (0, 1) {};
+            \node (i) [empty] at (-150:1) {};
+            \node (j) [empty] at (-30:1) {};
+            \draw [double line] (i) -- (0, 0) -- (j);
+            \draw [double line] (k) -- (0, 0);
+            \node (o) [vertex] at (0, 0) {};
+        \end{tikzpicture}\\
+        %
+        \wick{\c \pi^i \c \pi^j} & = \qquad
+        \begin{tikzpicture}[baseline = (i.south)]
+            \node (j) [empty, label = right:$j$] at (1.5, 0) {};
+            \node (i) [empty, label = left:$i$] at (0, 0) {};
+            \draw (0, 0) -- (1.5, 0) [arrowed];
+        \end{tikzpicture}
+        \qquad\qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \node (o) [vertex] at (0, 0) {};
+            \draw (135:1) -- (0, 0) -- (45:1);
+            \draw (-135:1) -- (0, 0) -- (-45:1);
+            \node at (135:1.2) {$k$};
+            \node at (45:1.2) {$l$};
+            \node at (-135:1.2) {$i$};
+            \node at (-45:1.2) {$j$};
+        \end{tikzpicture}
+        \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \draw [double line] (135:1) -- (0, 0) -- (45:1);
+            \node (o) [vertex] at (0, 0) {};
+            \draw (-135:1) -- (0, 0) -- (-45:1);
+            \node at (-135:1.2) {$i$};
+            \node at (-45:1.2) {$j$};
+        \end{tikzpicture}
+        \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \draw [double line] (135:1) -- (0, 0) -- (45:1);
+            \draw [double line] (-135:1) -- (0, 0) -- (-45:1);
+            \node (o) [vertex] at (0, 0) {};
+        \end{tikzpicture} 
+    \end{align*}
+
+    \item Compute the scattering amplitude for the process
+    \begin{equation*}
+        \pi^i(p_1)\pi^j(p_2) \to \pi^k(p_3)\pi^l(p_4)
+    \end{equation*}
+    to leading order in $\lambda$. There are now four Feynman diagrams that contribute:
+    \begin{equation*}
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.8]
+            \coordinate (a) at (0, 0.6);
+            \coordinate (b) at (0, -0.6);
+            \node (o) [empty] at (0, 0) {};
+            \draw [double line] (b) -- (a);
+            \draw (a) + (150:1) -- (a) -- +(30:1);
+            \draw (b) + (-150:1) -- (b) -- +(-30:1);
+        \end{tikzpicture}
+        \qquad + \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.8]
+            \coordinate (a) at (0.6, 0);
+            \coordinate (b) at (-0.6, 0);
+            \node (o) [empty] at (0, 0) {};
+            \draw [double line] (b) -- (a);
+            \draw (a) + (60:1) -- (a) -- +(-60:1);
+            \draw (b) + (120:1) -- (b) -- +(-120:1);
+        \end{tikzpicture}
+        \qquad + \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.8]
+            \coordinate (a) at (0.6, 0);
+            \coordinate (b) at (-0.6, 0);
+            \node (o) [empty] at (0, 0) {};
+            \draw [double line] (b) -- (a);
+            \draw (b) + (120:1) -- (a) -- +(-60:1);
+            \draw (a) + (60:1) -- (b) -- +(-120:1);
+        \end{tikzpicture}
+        \qquad + \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.8]
+            \node (o) [empty] at (0, 0) {};
+            \draw (-1, 1) -- (1, -1);
+            \draw (-1, -1) -- (1, 1);
+        \end{tikzpicture}
+    \end{equation*}
+    Show that, at threshold ($\vec{p}_i = 0$), these diagrams sum to \textit{zero}. (Hint: It may be easier to first consider
+    the specific process $\pi^1\pi^1 \to \pi^2\pi^2$, for which only the first and fourth diagrams are nonzero, before tackling 
+    the general case.) Show that, in the special case $N = 2$ (1 species of pion), the term of $\bigo(p^2)$ also cancels.
+
+    \item Add to $V$ a symmetriy-breaking term,
+    \begin{equation*}
+        \Delta V = -a\Phi^N,
+    \end{equation*}
+    where $a$ is a (small) constant. (In QCD, a term of this form is produces if the $u$ and $d$ quarks have the same nonvanishing
+    mass.) Find the new value of $v$ that minimizes $V$, and work out the content of the theory about that point. Show that the
+    pion acquires a mass such that $m_\pi^2 \sim a$, and show that the pion scattering amplitude at threshold is now nonvanishing
+    and also proportional to $a$.
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item The propagator for this Hamitonian is obvious. Vertex rule can be obtained by considering
+    \begin{equation}\label{equ:cp3:vertex_contract}
+        \bra{0}T \left[ \Phi^k(x_k)\Phi^l(x_l)\Phi^i(x_i)\Phi^j(x_j) 
+            \int \dd^4x \, \frac{-i\lambda}{4} 
+            \sum_{m = 1}^N \sum_{n = 1}^N (\Phi^m)^2(\Phi^n)^2
+        \right]\ket{0},
+    \end{equation}
+    and only consider connected part, i.e. the four $\Phi^i$'s outside the integration shouldn't contract with each other. The interchange
+    of the $\Phi^m$ and $\Phi^n$ gives a factor of two, while the contraction of the four $\Phi^i$'s with $\Phi^m$ and $\Phi^n$ gives 2, 
+    respectively. Thus \eqref{equ:cp3:vertex_contract} becomes
+    \begin{equation*}
+        -2i\lambda \left(
+            \delta^{ij}\delta^{kl} 
+            + \delta^{ik}\delta^{jl}
+            + \delta^{il}\delta^{jk}    
+        \right)
+        \int \dd^4x \, D_F(x_k - x)D_F(x_l - x)D_F(x_i - x)D_F(x_j - x).
+    \end{equation*}
+    So that the vertex rule is given by
+    \begin{equation*}
+        \begin{tikzpicture}[baseline = (o.south)]
+            \node (k) at (-1,  1) {$k$};
+            \node (l) at ( 1,  1) {$l$};
+            \node (i) at (-1, -1) {$i$};
+            \node (j) at ( 1, -1) {$j$};
+            \draw (k) -- (0, 0) -- (l);
+            \draw (i) -- (0, 0) -- (j);
+            \node (o) [vertex] at (0, 0) {};
+        \end{tikzpicture}
+        = -2i\lambda(
+            \delta^{ij}\delta^{kl}
+            + \delta^{il}\delta^{jk}
+            + \delta^{ik}\delta^{jl}
+        ).
+    \end{equation*}
+    Thus
+    \begin{equation*}
+        i\ims(\Phi^i\Phi^j \to \Phi^k\Phi^l) = -2i\lambda \left(
+            \delta^{ij}\delta^{kl}
+            + \delta^{il}\delta^{jk}
+            + \delta^{ik}\delta^{jl}
+        \right) \equiv -2i\lambda A,
+    \end{equation*}
+    and the cross section
+    \begin{equation*}
+        \df{\sigma}{\Omega}(\Phi^i\Phi^j \to \Phi^k\Phi^l)
+        = \frac{\abs{\ims}^2}{64\pi^2 E_{CM}^2}
+        = \frac{\lambda^2 A^2}{16 \pi^2 E_{CM}^2}.
+    \end{equation*}
+    For the three processes in concern, we have $A = 1, 1, 3$ respectively. As we can see, all of them are isotropic.
+
+    \item In this case, $V$ is given by
+    \begin{equation*}
+        V = -\frac{1}{2}\mu^2 (\Phi^i)^2 + \frac{\lambda}{4}\left((\Phi^i)^2\right)^2,
+    \end{equation*}
+    which is quadratic in $(\Phi^i)^2$, and has minimum at $(\Phi^i)^2 = \mu^2 / \lambda$. Thus $v = \mu / \sqrt{\lambda}$. Then
+    $V$ becomes
+    \begin{align*}
+        V & = \frac{\lambda}{4} \left[ (\pi^i)^2 + (v + \sigma)^2\right]^2
+        - \frac{1}{2}\mu^2 \left[ (\pi^i)^2 + (v + \sigma)^2 \right]\\
+        %
+        & = \frac{\lambda}{4}\left((\pi^i)^2\right)^2 + \frac{\lambda}{4}\sigma^4 
+        + \sqrt{\lambda} \mu (\pi^i)^2\sigma 
+        + \frac{\lambda}{2}(\pi^i)^2\sigma^2
+        + \sqrt{\lambda}\mu \sigma^3
+        + \mu^2\sigma^2
+        - \frac{\mu^4}{4\lambda}.
+    \end{align*}
+    There is no $(\pi^i)^2$ term, so the $\pi^i$'s are massless, while the term $\mu^2\sigma^2$ indicates $\sigma$ field has mass $\sqrt{2}\mu$, thus the 
+    propagators are
+    \begin{equation*}
+        \wick{\c \pi^i \c \pi^j} = \frac{i\delta^{ij}}{k^2 + i\epsilon}, \qquad
+        \wick{\c \sigma \c \sigma} = \frac{i}{k^2 - 2\mu^2 + i\epsilon}.
+    \end{equation*}
+    Feynman rule can be read directly from $V$:
+    \begin{equation*}
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \draw (135:1) -- (0, 0) -- (45:1);
+            \draw (-135:1) -- (0, 0) -- (-45:1);
+            \node at (135:1.3) {$k$};
+            \node at (45:1.3) {$l$};
+            \node at (-135:1.3) {$i$};
+            \node at (-45:1.3) {$j$};
+            \node (o) [vertex] at (0, 0) {};
+        \end{tikzpicture}
+        = -2i\lambda\left(
+            \delta^{kl}\delta^{ij}
+            + \delta^{ki}\delta^{lj}
+            + \delta^{kj}\delta^{li}    
+        \right),
+        \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \draw [double line] (135:1) -- (0, 0) -- (45:1);
+            \draw [double line] (-135:1) -- (0, 0) -- (-45:1);
+            \node (o) [vertex] at (0, 0) {};
+        \end{tikzpicture} = -6i\lambda,
+    \end{equation*}
+    \begin{equation*}
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \draw [double line] (0, 0) -- (0, 1);
+            \draw (0, 0) -- (-150:1);
+            \draw (0, 0) -- (-30:1);
+            \node at (-150:1.3) {$i$};
+            \node at (-30:1.3) {$j$};
+            \node (o) [vertex] at (0, 0){};
+        \end{tikzpicture} = -2i\sqrt{\lambda}\mu \delta^{ij},
+        \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \draw [double line] (0, 0) -- (0, 1);
+            \draw [double line] (-30:1) -- (0, 0) -- (-150:1);
+            \node (o) [vertex] at (0, 0){};
+        \end{tikzpicture} = -6i\sqrt{\lambda}\mu,
+        \qquad
+        \begin{tikzpicture}[baseline = (o.south), scale = 0.6]
+            \draw [double line] (135:1) -- (0, 0) -- (45:1);
+            \draw (-135:1) -- (0, 0) -- (-45:1);
+            \node at (-135:1.3) {$i$};
+            \node at (-45:1.3) {$j$};
+            \node (o) [vertex] at (0, 0) {};
+        \end{tikzpicture} = -2i\lambda\delta^{ij}.
+    \end{equation*}
+
+    \item We evaluate each diagram:
+    \begin{align*}
+        \begin{tikzpicture}[baseline = (o.south)]
+            \coordinate (a) at (0, 0.6);
+            \coordinate (b) at (0, -0.6);
+            \node (o) [empty] at (0, 0) {};
+            \draw [double line] (b) -- (a);
+            \draw (a) -- +(150:1) [arrowed, text = $p_3$];
+            \draw (a) -- +(30:1) [arrowed, texti = $p_4$];
+            \node at ($ (a) + (150:1.3) $) {$k$};
+            \node at ($ (a) + (30:1.3) $) {$l$};
+            \draw ($ (b) + (-150:1) $) -- (b) [arrowed, text = $p_1$];
+            \draw ($ (b) + (-30:1) $) -- (b) [arrowed, texti = $p_2$];
+            \node at ($ (b) + (-150:1.3) $) {$i$};
+            \node at ($ (b) + (-30:1.3) $) {$j$};
+        \end{tikzpicture}
+        & = -4\lambda\mu^2\delta^{ij}\delta^{kl}\frac{i}{(p_1 + p_2)^2 - 2\mu^2},\\
+        %
+        \begin{tikzpicture}[baseline = (o.south)]
+            \coordinate (a) at (-0.6, 0);
+            \coordinate (b) at (0.6, 0);
+            \node (o) [empty] at (0, 0) {};
+            \draw [double line] (b) -- (a);
+            \draw (a) -- +(120:1) [arrowed, texti = $p_3$];
+            \draw (b) -- +(60:1) [arrowed, text = $p_4$];
+            \node at ($ (a) + (120:1.3) $) {$k$};
+            \node at ($ (b) + (60:1.3) $) {$l$};
+            \draw ($ (a) + (-120:1) $) -- (a) [arrowed, texti = $p_1$];
+            \draw ($ (b) + (-60:1) $) -- (b) [arrowed, text = $p_2$];
+            \node at ($ (a) + (-120:1.3) $) {$i$};
+            \node at ($ (b) + (-60:1.3) $) {$j$};
+        \end{tikzpicture}
+        & = -4\lambda\mu^2\delta^{ki}\delta^{lj}\frac{i}{(p_3 - p_1)^2 - 2\mu^2},\\
+        \begin{tikzpicture}[baseline = (o.south)]
+            \coordinate (a) at (-0.6, 0);
+            \coordinate (b) at (0.6, 0);
+            \node (o) [empty] at (0, 0) {};
+            \draw [double line] (a) -- (b);
+            \draw (a) -- node[midway, label=above:$p_4$] {} ($ (b) + (60:1) $) [arrowed];
+            \draw (b) -- node[midway, label=above:$p_3$] {} ($ (a) + (120:1) $) [arrowed];
+            \node at ($ (a) + (120:1.3) $) {$k$};
+            \node at ($ (b) + (60:1.3) $) {$l$};
+            \draw ($ (a) + (-120:1) $) -- (a) [arrowed, texti = $p_1$];
+            \draw ($ (b) + (-60:1) $) -- (b) [arrowed, text = $p_2$];
+            \node at ($ (a) + (-120:1.3) $) {$i$};
+            \node at ($ (b) + (-60:1.3) $) {$j$}; 
+        \end{tikzpicture}
+        & = -4\lambda\mu^2\delta^{li}\delta^{kj}\frac{i}{(p_4 - p_1)^2 - 2\mu^2},\\
+        \begin{tikzpicture}[baseline = (o.south)]
+            \draw (135:1) -- (0, 0) -- (-45:1);
+            \draw (45:1) -- (0, 0) -- (-135:1);
+            \node (o) [empty] at (0, 0) {};
+            \node at (135:1.3) {$k$};
+            \node at (45:1.3) {$l$};
+            \node at (-45:1.3) {$j$};
+            \node at (-135:1.3) {$i$};
+        \end{tikzpicture}
+        & = -2i\lambda\left(
+            \delta^{kl}\delta^{ij}
+            + \delta^{ki}\delta^{lj}
+            + \delta^{kj}\delta^{li}    
+        \right).
+    \end{align*}
+    The amplitude is the sum of the above diagrams:
+    \begin{equation*}
+        i\ims = -2i\lambda\delta^{ij}\delta^{kl}\frac{s}{s - 2\mu^2}
+        - 2i\lambda\delta^{ik}\delta^{lj}\frac{t}{t - 2\mu^2}
+        - 2i\lambda\delta^{il}\delta^{kj}\frac{u}{u - 2\mu^2},
+    \end{equation*}
+    where 
+    \begin{equation*}
+        s = (p_1 + p_2)^2, \qquad t = (p_3 - p_1)^2, \qquad u = (p_4 - p_1)^2.
+    \end{equation*}
+    At threshold where $\vec{p}_i = 0$, we have $s = t = u = 0$, so $\ims$ vanishes. In the special case $N = 2$, all
+    the $\delta$'s in $\ims$ become factors of one:
+    \begin{equation*}
+        \ims = -2\lambda\left(
+            \frac{s}{s - 2\mu^2}
+            + \frac{t}{t - 2\mu^2}
+            + \frac{u}{u - 2\mu^2}    
+        \right).
+    \end{equation*}
+
+    \item With the presence of $\Delta V$, $V$ is now
+    \begin{equation*}
+        V = \frac{\lambda}{4} \left[
+            (\pi^i)^2 + (\Phi^N)^2
+        \right]^2
+        - \frac{1}{2}\mu^2\left[
+            (\pi^i)^2 + (\Phi^N)^2    
+        \right]
+        - a \Phi^N.
+    \end{equation*}
+    Let $v$ be the value of $\Phi^N$ that minimizes $V$ when $\pi^i = 0$. The condition is
+    \begin{equation*}
+        \pd{V}{v} = \lambda v^3 - \mu^2 v - a = 0.
+    \end{equation*}
+    Since $a$ is small, $v$ can be solved by perturbation. Let $v = \mu / \sqrt{\lambda} + xa + o(a)$, with $x$ be a constant to be
+    determined. Substitude into the equation above, we get $x = 1 / 2\mu^2$. The new potential is then
+    \begin{align*}
+        V & = \frac{\lambda}{4}\left[
+            (\pi^i)^2 + (v + \sigma)^2    
+        \right] - \frac{1}{2}\mu^2 \left[
+            (\pi^i)^2 + (v + \sigma)^2
+        \right] - a (v + \sigma)\\
+        %
+        & = \frac{a\sqrt{\lambda}}{2\mu} (\pi^i)^2 
+        + \left(\mu^2 + \frac{3a\sqrt{\lambda}}{2\mu}\right)\sigma^2
+        + \left(\frac{a\lambda}{2\mu^2} + \sqrt{\lambda}\mu\right)(\pi^i)^2\sigma
+        + \left(\frac{a\lambda}{2\mu^2} + \sqrt{\lambda}\mu\right) \sigma^3\\
+        & \qquad + \frac{\lambda}{4}\left((\pi^i)^2\right)^2
+        + \frac{\lambda}{2}(\pi^i)^2\sigma^2 + \frac{\lambda}{4}\sigma^4
+        -\frac{\mu^4}{4\lambda} - \frac{a\mu}{\sqrt{\lambda}} - o(a).
+    \end{align*}
+    The $\Delta V$ modifies the particle masses, the $\pi^2\sigma$ and $\sigma^3$ vertices. The pion acquires mass $m_\pi^2 = a\sqrt{\lambda} / \mu \propto a$.
+    Since the $\pi^4$ vertex is unaffected, while the coeffecient of $\pi^2\sigma$ vertex is added by $a\lambda / 2\mu^2$, the pion scattering amplitude at threshold 
+    now no longer vanish:
+    \begin{align*}
+        i\ims & = -4i\lambda\left(\mu^2 + \frac{\sqrt{\lambda}}{\mu}a\right)\left(
+            \frac{\delta^{ij}\delta^{kl}}{s - m_\sigma^2} 
+            + \frac{\delta^{ik}\delta^{lj}}{t - m_\sigma^2} 
+            + \frac{\delta^{il}\delta^{kj}}{u - m_\sigma^2}
+        \right)\\
+        & \qquad -2i\lambda\left(
+            \delta^{kl}\delta^{ij}
+            + \delta^{ki}\delta^{lj}
+            + \delta^{kj}\delta^{li}    
+        \right)\\
+        %
+        & = i\ims_0 + 4i\frac{\lambda\sqrt{\lambda}}{\mu}a \left(
+            \frac{\delta^{ij}\delta^{kl}}{s - m_\sigma^2} 
+            + \frac{\delta^{ik}\delta^{lj}}{t - m_\sigma^2} 
+            + \frac{\delta^{il}\delta^{kj}}{u - m_\sigma^2}
+        \right),
+    \end{align*}
+    where $m_\sigma$ is the mass of ``sigmaon'' with the presence of $\Delta V$, and $\ims$ is the original scattering amplitude with the sigmaon mass in the propagator 
+    replaced by $m_\sigma$. Thus $\ims$ vanishes at threshold and the remaining terms are proportional to $a$.
+\end{problembody}

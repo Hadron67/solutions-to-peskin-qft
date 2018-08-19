@@ -1,0 +1,469 @@
+\section{Chapter 4}
+
+\setcounter{equation}{137}
+\problem Let us return to the problem of the creation of Klein-Gordon particles
+by a classical source. Recall from Chapter 2 that this process can be described
+by the Hamitonian
+\begin{equation*}
+    H = H_0 + \int \dd^3 x \, \left(-j(t, \vec{x})\phi(x)\right),
+\end{equation*}
+where $H_0$ is the free Klein-Gordon Hamitonian, $\phi(x)$ is the Klein-Gordon 
+field, and $j(x)$ is a c-number scalar function. We found that, if the system is
+in the vacuum state before the source is turned on, the source will create a mean
+number of particles
+\begin{equation*}
+    \avg{N} = \int \frac{\dd^3 p}{(2\pi)^3} \frac{1}{2E_{\vec{p}}} \abs{\tilde{\jmath}(p)}^2.
+\end{equation*}
+In this problem we will verify that statement, and extract more detailed information,
+by using a perturbation expansion in the strength of the source.
+\begin{problembody}
+    \item Show that the probability that the source creates \textit{no} particles is 
+    given by 
+    \begin{equation*}
+        P(0) = \abs{
+            \bra{0} T\left\{
+                \exp[
+                    i\int \dd^4x \, j(x) \phi_I(x)
+                ]    
+            \right\}\ket{0}
+        }^2
+    \end{equation*}
+
+    \item\label{ex:cp4:eval_p} Evaluate the term in $P(0)$ of order $j^2$, and show that $P(0) = 1 - \lambda + \bigo(j^4)$,
+    where $\lambda$ equals the expression given above for $\avg{N}$.
+
+    \item\label{ex:cp4:p_sum} Represent the term computed in part \ref{ex:cp4:eval_p} as a Feynman diagram. Now Represent
+    the whole perturbation series for $P(0)$ in terms of Feynman diagrams. Show that this series
+    exponentiates, so that it can be summed exactly: $P(0) = \exp(-\lambda)$.
+
+    \item Compute the probability that the source creates one particle of momentum $k$.
+    Perform this computation first to $\bigo(j)$ and then to all orders, using the trick of part \ref{ex:cp4:p_sum} to sum
+    the series.
+
+    \item Show that the probability of producing $n$ particles is given by 
+    \begin{equation*}
+        P(n) = (1 / n!)\lambda^n \exp(-\lambda).
+    \end{equation*}
+    This is a \textit{Poisson distribution}.
+
+    \item Prove the following facts about the Poisson distribution:
+    \begin{equation*}
+        \sum_{n = 0}^\infty P(n) = 1; 
+        \qquad \avg{N} = \sum_{n = 0}^\infty n P(n) = \lambda.
+    \end{equation*}
+    The first identity says that the $P(n)$'s are properly normalized probabilities, while the second confirms our proposal
+    for $\avg{N}$. Compute the mean square fluctuation $\avg{(N - \avg{N})^2}$.
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item Work in interaction picture, where all field operators evaluate according to $H_0$, and all states to the full 
+    Hamitonian. The evaluation operator of states is
+    \begin{equation*}
+        U_I(t) = e^{iH_0t} e^{-iHt},
+    \end{equation*}
+    whose time derivative is
+    \begin{equation*}
+        i \frac{\dd}{\dd t} U_I(t)
+        = e^{iH_0t}(H - H_0)e^{-iH_0t} e^{iH_0t} e^{-iHt}
+        = H_I(t) U_I(t).
+    \end{equation*}
+    Thus $U_I(t)$ can also be written as
+    \begin{equation*}
+        U_I(t) = T e^{-i \int_0^t H_I(t) \dd t} 
+        = T \exp[i\int_0^t \dd t\int \dd^3x \, j(x)\phi_I(x)].
+    \end{equation*}
+    Assume the source is turned on during the interval $[T, -T]$, the probability of vacuum to vacuum is given by
+    \begin{equation*}
+        P(0) = \abs{\inner{0, T}{0, -T}}^2 = \abs{\bra{0} U_I(T) U_I(-T) \ket{0}}^2.
+    \end{equation*}
+    Take the limit $T \to +\infty$, it becomes
+    \begin{equation*}
+        P(0) = \abs{
+            \bra{0} T\left\{
+                \exp[
+                    i\int \dd^4x \, j(x) \phi_I(x)
+                ]    
+            \right\}\ket{0}
+        }^2 \equiv \abs{M}^2.
+    \end{equation*}
+
+    \item To do this, expand $M$ to order $j^4$:
+    \begin{equation*}
+        M = \bra{0} T\left[1 
+        + i\int \dd^4x \, j(x)\phi_I(x) 
+        - \frac{1}{2} \int \dd^4x \int \dd^4y \, j(x)j(y)\phi_I(x)\phi_I(y)
+        + F
+        + \bigo(j^4) \right]\ket{0}.
+    \end{equation*}
+    Where $F$ is an integral containing three $\phi_I$'s. By wick's theorem, the second and fourth term vanishes, 
+    the two $\phi_I$'s in the third term becomes a propagator:
+    \begin{equation*}
+        M = 1 - \frac{1}{2} \int \dd^4x \int \dd^4y \, j(x)D_F(x - y)j(y) + \bigo(j^4).
+    \end{equation*}
+    The integral can be evaluated as below:
+    \begin{align*}
+        \int \dd^4x \int \dd^4y \, j(x)D_F(x - y)j(y)
+        & = \int \dd^4x \int \dd^4y \int \frac{\dd^4p}{(2\pi)^4}
+        j(x)j(y)\frac{ie^{-ip\cdot(x - y)}}{p^2 - m^2 + i\epsilon}\\
+        %
+        & = \int \frac{\dd^4p}{(2\pi)^4} \frac{i\abs{\tilde{\jmath}(p)}^2}{p^2 - m^2 + i\epsilon}\\
+        & = \int \frac{\dd^3p}{(2\pi)^3} \frac{\abs{\tilde{\jmath}(p)}^2}{2E_{\vec{p}}}\\
+        & = \lambda.
+    \end{align*}
+    Thus $P(0) = \abs{M}^2 = 1 - \lambda + \bigo(j^4)$.
+
+    \item The (position space) Feynman rule for the total Hamitonian is
+    \begin{equation*}
+        \begin{tikzpicture}
+            \node [vertex, label = above:$x$] (x) at (0, 0) {};
+            \node [vertex, label = above:$y$] (y) at (1, 0) {};
+            \draw (0, 0) -- (1, 0);
+        \end{tikzpicture}
+        = D_F(x - y);
+        \qquad \begin{tikzpicture}
+            \node [cross vertex, label = above:$x$] (x) at (0, 0) {};
+            \draw (0, 0) -- (1, 0);
+        \end{tikzpicture}
+        = ij(x),
+    \end{equation*}
+    and integrating over all internal points. Then $\lambda$ can be represented as
+    \begin{equation*}
+        \lambda = \int \dd^4x \int \dd^4y \, j(x)D_F(x - y)j(y) = 
+        -\begin{tikzpicture}
+            \node [cross vertex] (x) at (0, 0) {};
+            \node [cross vertex] (y) at (1, 0) {};
+            \draw (0, 0) -- (1, 0);
+        \end{tikzpicture}.
+    \end{equation*}
+    As we can see, $M$ is the sum of all diagrams without external vertices. Since only diagrams with an even
+    number of vertices can be fully connected to yield a non-zero term, we now consider $2n$-th diagram in the 
+    perturbation series. It is given by
+    \begin{equation*}
+        \frac{1}{(2n)!} S \left(
+            \begin{tikzpicture}
+                \node [cross vertex] (x) at (0, 0) {};
+                \node [cross vertex] (y) at (1, 0) {};
+                \draw (0, 0) -- (1, 0);
+            \end{tikzpicture}    
+        \right)^n
+        = \frac{(-\lambda)^n}{(2n)!} S,
+    \end{equation*}
+    where $S$ is the number of ways these vertices could be connected. We'll find it in this way: first choose 2 
+    vertices from $2n$ vertices to connect, then choose 2 more from the rest $2n - 2$ vertices, and so on, and 
+    divide the final result by $n!$ to cancel the order of our steps. Thus
+    \begin{equation*}
+        S = \frac{1}{n!} C_{2n}^2 C_{2n - 2}^2 \cdots C_2^2
+        = \frac{1}{n!} \frac{(2n)!}{2(2n - 2)!} \frac{(2n - 2)!}{2(2n - 4)!}
+        \cdots \frac{2!}{2(0!)}
+        = \frac{(2n)!}{2^n n!}.
+    \end{equation*}
+    Substitute into the expression of $2n$-th term, the $(2n)!$ cancels, resulting in another taylor series
+    of exponentiate:
+    \begin{equation*}
+        M = \frac{1}{n!}(-\frac{\lambda}{2})^n = e^{- \lambda / 2}.
+    \end{equation*}
+    So that $P(0) = \abs{M}^2 = e^{-\lambda}$.
+
+    \item In this case, the initial and final state are
+    \begin{equation*}
+        \ket{i} = \ket{0}, \qquad \text{and} \quad \ket{f} = a_k^\dagger\ket{0} = \frac{1}{\sqrt{2\omega_k}}\ket{k},
+    \end{equation*}
+    respectively. The probability is now
+    \begin{equation*}
+        P(1, k) \equiv \abs{M_k}^2 = \abs{
+            \bra{f} T\left\{
+                \exp[i\int \dd^4x \, j(x)\phi_I(x)]    
+            \right\} \ket{0}
+        }^2.
+    \end{equation*}
+    When expanding, we need the contraction of $\phi_I$ with $\ket{f}$:
+    \begin{equation*}
+        \wick{\c \phi_I(x) |\c f\rangle}
+        = \wick{\c \phi_I(x) \c a_k^\dagger}\ket{0}
+        = \sum_{k'} \varphi_{k'} a_{k'} a_k^\dagger \ket{0}
+        = \varphi_k \ket{0}
+        = \frac{1}{\sqrt{2V\omega_k}} e^{-ik\cdot x}\ket{0}.
+    \end{equation*}
+    This yields the following rule for external lines:
+    \begin{align*}
+        \begin{tikzpicture}[scale = 0.5]
+            \node [cross vertex] at (0, 0) {};
+            \node [label = above:$k$] at (1, 0.5) {};
+            \draw (0, 0) -- (2, 0);
+            \draw [-Latex] (1.5, 0.5) -- (0.5, 0.5);
+        \end{tikzpicture}
+        = i\int \dd^4 x \, j(x) \wick{\c\phi_I(x) \c a_k^\dagger}
+        = \frac{i\tilde{\jmath}(k)}{\sqrt{2V\omega_k}}
+        \equiv i\mu_k.
+    \end{align*}
+    Since the final state must contract with one field operator to form a vacuum state, every diagram should contain 
+    one vertex that connected to an external line. Thus only $(2n + 1)$-th order 
+    diagrams are non-zero, for $n \geqslant 0$. They are given by
+    \begin{equation*}
+        \frac{1}{(2n + 1)!} S_1 \Big(\begin{tikzpicture}[scale = 0.5]
+            \node [cross vertex] at (0, 0) {};
+            \node [label = above:$k$] at (1, 0.5) {};
+            \draw (0, 0) -- (2, 0);
+            \draw [-Latex] (0.5, 0.5) -- (1.5, 0.5);
+        \end{tikzpicture}\Big) \left(\begin{tikzpicture}
+            \node [cross vertex] at (0, 0) {};
+            \node [cross vertex] at (1, 0) {};
+            \draw (0, 0) -- (1, 0);
+        \end{tikzpicture}\right)^n
+        = \frac{i}{(2n + 1)!} S_1 \mu_k^\ast (-\lambda)^n,
+    \end{equation*}
+    where $S_1$, again, is the number of ways these vertices can be connected, can be calculated as
+    \begin{equation*}
+        S_1 = A_{2n + 1}^1 S = \frac{(2n + 1)(2n)!}{2^nn!}. 
+    \end{equation*}
+    The diagram then becomes
+    \begin{equation*}
+        \frac{i}{n!} \left(-\frac{\lambda}{2}\right)^n \mu_k^\ast.
+    \end{equation*}
+    Thus
+    \begin{equation*}
+        P(1, k) = \abs{
+            i\mu_k^\ast \sum_{n = 0}^\infty
+            \frac{1}{n!}
+            \left(-\frac{\lambda}{2}\right)^n
+        }^2 = \abs{\mu_k}^2 e^{-\lambda}
+        = \frac{\abs{\tilde{\jmath}(k)}^2}{2V\omega_k} e^{-\lambda}.
+    \end{equation*}
+
+    \item Consider first, the probability of creating $n$ particles with momenta $k_1, k_2, \cdots, k_n$, respectively. The final state is
+    \begin{equation*}
+        \ket{f} = \prod_{i = 1}^n a_{k_i}^\dagger \ket{0},
+    \end{equation*}
+    Now $M$ should be the sum of all diagrams with $n$ vertices connected to $n$ different external lines, so only $(2j + n)$-th order diagrams are non-zero:
+    \begin{equation*}
+        \frac{1}{(2j + n)!} S_n \Big(\prod_{l = 1}^n \begin{tikzpicture}[scale = 0.5]
+            \node [cross vertex] at (0, 0) {};
+            \node [label = above:$k_l$] at (1, 0.5) {};
+            \draw (0, 0) -- (2, 0);
+            \draw [-Latex] (0.5, 0.5) -- (1.5, 0.5);
+        \end{tikzpicture}\Big) \left(\begin{tikzpicture}
+            \node [cross vertex] at (0, 0) {};
+            \node [cross vertex] at (1, 0) {};
+            \draw (0, 0) -- (1, 0);
+        \end{tikzpicture}\right)^j
+        = \frac{1}{(2j + n)!} S_n \left(\prod_{l = 1}^n i\mu_{k_l}^\ast\right) (-\lambda)^j.
+    \end{equation*}
+    Where $S_n$ is the number of contraction ways:
+    \begin{equation*}
+        S_n = A_{2j + n}^n S 
+        = \frac{(2j + n)!}{(2j)!} \frac{(2j)!}{2^jj!} 
+        = \frac{(2j + n)!}{2^j j!}.
+    \end{equation*}
+    Thus
+    \begin{equation*}
+        M = 
+        \left(\prod_{l = 1}^n i\mu_{k_l}^\ast\right) 
+        \sum_{j = 0}^\infty 
+        j! \left(-\frac{\lambda}{2}\right)^j
+        = \left(\prod_{l = 1}^n i\mu_{k_l}^\ast\right)
+        e^{-\lambda / 2}.
+    \end{equation*}
+    The probability of creating $n$ particles is then $\abs{M}^2$ sum over the $n$ momenta, and divide by $n!$
+    to cancel the overcounting when interchange these momenta:
+    \begin{align*}
+        P(n) = \frac{1}{n!}\sum_{\{k_i\}} \abs{M}^2 
+        & = \left(
+            \sum_k
+            \frac{\abs{\tilde{\jmath}(k)}^2}{2V\omega_k}
+        \right)^n
+        \frac{1}{n!} e^{-\lambda}\\
+        & = \left(
+            \int \frac{\dd^3k}{(2\pi)^3} \frac{\abs{\tilde{\jmath}(k)}^2}{2\omega_k}    
+        \right)^n \frac{1}{n!} e^{-\lambda}\\
+        & = \frac{\lambda^n}{n!} e^{-\lambda}.
+    \end{align*}
+
+    \item \begin{equation*}
+        \sum_{n = 0}^\infty P(n) 
+        = e^{-\lambda} \sum_{n = 0}^\infty \frac{\lambda^n}{n!}
+        = e^{-\lambda} e^{\lambda} = 1.
+    \end{equation*}
+    \begin{equation*}
+        \avg{N} = \sum_{n = 0}^\infty nP(n)
+        = e^{-\lambda} \sum_{n = 1}^\infty \frac{\lambda^n}{(n - 1)!}
+        = \lambda e^{-\lambda} \sum_{n = 0}^\infty \frac{\lambda^n}{n!}
+        = \lambda.
+    \end{equation*}
+    \begin{align*}
+        \avg{(N - \avg{N})^2} = \avg{N^2} - \avg{N}^2
+        & = \avg{N(N - 1)} + \avg{N} - \avg{N}^2\\
+        & = e^{-\lambda} \sum_{n = 2}^\infty \frac{\lambda^n}{(n - 2)!}
+        + \lambda - \lambda^2\\
+        & = \lambda.
+    \end{align*}
+\end{problembody}
+
+\problem \textbf{Decay of a scalar particle.} Consider the following Lagrangian, involving two
+real scalar fiels $\Phi$ and $\phi$:
+\begin{equation*}
+    \lag = \frac{1}{2}(\partial_\mu\Phi)^2 - \frac{1}{2}M^2\Phi^2
+    + \frac{1}{2}(\partial_\mu\phi)^2 - \frac{1}{2}m^2\phi^2
+    - \mu\Phi\phi\phi.
+\end{equation*}
+The last term is an interaction that allows a $\Phi$ particle to decay into two $\phi$'s, provided
+that $M > 2m$. Assume that this condition is met, calculate the lifetime of the $\Phi$ to lowest order
+in $\mu$.
+
+\solution 
+Feynman rule for this Lagrangian is
+\begin{equation*}
+    \begin{tikzpicture}[baseline = (o)]
+        \node [label = above:$k$] (o) at (0, 0) {};
+        \draw (-1, 0) -- (1, 0) [arrowed];
+    \end{tikzpicture} = \frac{i}{k^2 - m^2 + i\epsilon},
+    \qquad \begin{tikzpicture}[baseline = (o)]
+        \node [label = above:$k$] (o) at (0, 0) {};
+        \draw [double line] (-1, 0) -- (1, 0) [arrowed];
+    \end{tikzpicture} = \frac{i}{k^2 - M^2 + i\epsilon},
+\end{equation*}
+\begin{equation*}
+    \begin{tikzpicture}[baseline = (o.south)]
+        \coordinate (a) at (-1, 0);
+        \coordinate (b) at (60:1);
+        \coordinate (c) at (-60:1);
+        \draw [double line] (a) -- (0, 0);
+        \draw (b) -- (0, 0) -- (c);
+        \node [vertex] (o) at (0, 0) {};
+    \end{tikzpicture} = i\mu.
+\end{equation*}
+The lowest order contribution to the decay of $\Phi$ is given by the tree diagram:
+\begin{center}
+    \begin{tikzpicture}[scale = 1.5]
+        \coordinate (a) at (0, -1);
+        \coordinate (b) at (30:1);
+        \coordinate (c) at (150:1);
+        \draw [double line] (a) -- (0, 0)[arrowed, text = $k$];
+        \draw (0, 0) -- (b) [arrowed, text = $k_2$];
+        \draw (0, 0) -- (c) [arrowed, text = $k_1$];
+        \node [vertex] at (0, 0) {};
+    \end{tikzpicture}.
+\end{center}
+Thus $i\ims = i\mu$, and the decay width
+\begin{align*}
+    \dd \Gamma & = \frac{1}{2M(2\pi)^2} 
+    \int \dd^3k_1 \int \dd^3k_2 \, \frac{\abs{\ims}^2}{4E_1E_2} \delta(E_1 + E_2 - 2M)\delta^3(k_1 + k_2)\\
+    & = \frac{1}{64\pi^2M} \int \dd\Omega 
+    \int_0^{+\infty} k^2\dd k \frac{\abs{\ims}^2}{k^2 + m^2}\delta(\sqrt{k^2 + m^2} - M)\\
+    %
+    & = \frac{\mu^2}{64\pi^2M} \sqrt{1 - \frac{m^2}{M^2}}.
+\end{align*}
+
+\input{4.3}
+
+\problem \textbf{Rutherford scattering.} The cross section for scattering of an electron by the Coulomb field of a nucleus can be computed, to lowest 
+order, without quantizing the electromagnetic field. Insteadm treat the field as a given , classical potential $A_\mu(x)$. The interaction Hamitonian
+is 
+\begin{equation*}
+    H_I = \int \dd^3 x \, e\bar{\psi}\gamma^\mu\psi A_\mu,
+\end{equation*}
+where $\psi(x)$ is the usual quantized Dirac field.
+\begin{problembody}
+    \item Show that the \textit{T}-matrix element for electron scattering of a localized classical potential is, to lowest order,
+    \begin{equation*}
+        \bra{p'}iT\ket{p} = -ie\bar{u}(p')\gamma^\mu u(p) \tilde{A}_\mu(p' - p),
+    \end{equation*}
+    where $\widetilde{A}_\mu(q)$ is the four dimensional Fourier transform of $A_\mu(x)$.
+
+    \item If $A_\mu(x)$ is time independent, its Fourier transform contains a delta function of energy. It is then natural to define
+    \begin{equation*}
+        \bra{p'}iT\ket{p} \equiv i\ims (2\pi) \delta(E_f - E_i),
+    \end{equation*}
+    where $E_i$ and $E_f$ are the initial and final energies of the particle, and to adopt a new Feynman rule for computing $\ims$:
+    \begin{equation*}
+        \feynmandiagram[horizontal = a to b, baseline = (a.base)]{
+            i1 -- [fermion] a [dot] -- [fermion] i2,
+            b [crossed dot] -- [photon] a
+        };
+        = -ie\gamma^\mu\widetilde{A}_\mu(\vec{q}),
+    \end{equation*}
+    where $\widetilde{A}_\mu(\vec{q})$ is the three dimensional Fourier transform of $A_\mu(x)$. Given this definition of $\ims$, show that the cross section 
+    for scattering off a time-independent, localized potential is
+    \begin{equation*}
+        \dd\sigma = \frac{1}{v_i}\frac{1}{2E_i}\frac{\dd^3p_f}{(2\pi)^3}
+        \frac{1}{2E_f}\abs{\ims(p_i \to p_f)}^2 (2\pi)\delta(E_f - E_i),
+    \end{equation*}
+    where $v_i$ is the particle's initial velocity. This formula is a natural modification of (4.79). Integrate over $\abs{p_f}$ to find a simple expression for $\dd\sigma / \dd \Omega$.
+
+    \item Specialize to the case of electron scattering from a Coulomb potential ($A^0 = Ze / 4\pi r$). Working in the nonrelativistic limit, derive the Rutherford formula,
+    \begin{equation*}
+        \df{\sigma}{\Omega} = \frac{\alpha^2 Z^2}{4m^2v^4\sin^4(\theta / 2)}.
+    \end{equation*}
+    (With a few calculational tricks from Section 5.1, you will have no difficulty evaluating the general cross section in the relativistic case; see Problem 5.1.)
+\end{problembody}
+
+\solution
+\begin{problembody}
+    \item \begin{align*}
+        \bra{p'}iT\ket{p} & = -ie \int \dd^4x \, 
+        \wick{\langle\c p'| \c{\bar\psi}\gamma^\mu\c\psi A_\mu(x) |\c p\rangle}\\
+        %
+        & = -ie \int \dd^4x \, \bar{u}(p')\slashed{A}(x)u(p) e^{ix\cdot(p' - p)}\\
+        & = -ie \bar u(p') \gamma^\mu u(p) \widetilde{A}_\mu(p' - p).
+    \end{align*}
+
+    \item The cross section can be derived the same way as (4.79), with
+    \begin{equation*}
+        \ket{\text{in}} = \int \frac{\dd^3p}{(2\pi)^3} \frac{\phi_i(\vec p)e^{-i\vec b \cdot \vec p}}{\sqrt{2E_p}} \ket{p}_{\text{in}}, \qquad \text{and} \; 
+        \ket{\text{out}} = \frac{1}{\sqrt{(2\pi)^32E_f}}\ket{p_f}_{\text{out}}
+    \end{equation*}
+    being the inital and final states instead, where $\phi_i$ have narrow peak at $p_i$. The cross section is the transition probability integrate over
+    the `impact parameter' $\vec b$:
+    \begin{align*}
+        \frac{\dd\sigma}{\dd^3p_f} & = \int \dd^2b \, \abs{\inner{\text{in}}{\text{out}}}^2\\
+        & = \int \dd^2 b \int \frac{\dd^3p_1}{(2\pi)^3} 
+        \int \frac{\dd^3p_2}{(2\pi)^3}
+        \frac{
+            \phi_i^\ast(\vec p_1)
+            \phi_i(\vec p_2)
+            e^{-i\vec b \cdot (\vec p_2 - \vec p_1)}
+        }{
+            \sqrt{2E_1}\sqrt{2E_2}(2\pi)^3 2E_f
+        }(2\pi)^2\abs \ims^2 \delta(E_1 - E_f) \delta(E_2 - E_f)\\
+        & = \frac{1}{(2\pi)^5 2E_f}\int \dd^3p_1 \int \dd^3p_2
+        \frac{\phi_i^\ast(\vec p_1)\phi_i(\vec p_2)}{2E_1} \abs \ims^2
+        \delta(E_1 - E_2)\delta^2(\vec p_{1\bot} - \vec p_{2\bot})\delta(E_1 - E_f)\\
+        & = \frac{1}{(2\pi)^5 2E_f}
+        \int \dd^3p_1 \int \dd^3p_2
+        \frac{\phi_i^\ast(\vec p_1)\phi_i(\vec p_2)}{2E_1 v_1} \abs \ims^2
+        \delta^3(\vec p_1 - \vec p_2)\delta(E_1 - E_f)\\
+        & = \frac{1}{(2\pi)^5 2E_f}
+        \int \dd^3p_1
+        \frac{\abs{\phi_i(\vec p_1)}^2}{2E_1 v_1} \abs \ims^2 \delta(E_1 - E_f)\\
+        & = \frac{1}{(2\pi)^2 2E_f 2E_i v_i}\abs\ims^2 \delta(E_i - E_f).
+    \end{align*}
+    Integrate over modulu,
+    \begin{align*}
+        \df{\sigma}{\Omega} & = \frac{\abs\ims^2}{16\pi^2 \abs{p_i}} 
+        \int_0^\infty \frac{p^2}{2E_f}\delta(E_i - E_f) \dd p\\
+        & = \frac{\abs\ims^2}{32\pi^2}.
+    \end{align*}
+
+    \item The amplitude in the lowest order is
+    \[
+        i\ims = -ie\bar u(p_f)\gamma^\mu u(p_i)\widetilde A_\mu(\vec p_f - \vec p_i),
+    \]
+    where $\widetilde{A}_\mu(\vec q)$ can be calculated below
+    \begin{align*}
+        \widetilde{A}^0(\vec q) & = \int \dd^3x \, \frac{Ze}{4\pi r} e^{-i\vec q\cdot\vec x}\\
+        & = \frac{Ze}{2}\int_0^\pi \dd(-\cos\theta)\int_0^\infty r e^{-iqr\cos\theta} \dd r\\
+        & = \frac{Ze}{-2iq}\int_0^\infty e^{-\epsilon r}\left(e^{iqr} - e^{-iqr}\right) \dd r\\
+        & = \frac{Ze}{q^2 + \epsilon^2},
+    \end{align*}
+    and the spacial components are zero. The amplitude then reads
+    \begin{align*}
+        i\ims & = -ie \bar u(p_f)\gamma^0u(p_i) \frac{Ze}{\abs{\vec p_f - \vec p_i}^2}\\
+        & = -2im \delta^{ss'} \frac{Ze^2}{\abs{\vec p_f - \vec p_i}^2}\\
+        & = \frac{-i\delta^{ss'}Ze^2}{2mv^2\sin^2(\theta / 2)}.
+    \end{align*}
+    Thus
+    \[
+        \df{\sigma}{\Omega} = \frac{e^4Z^2}{64\pi^2 m^2 v^4 \sin^4(\theta / 2)}
+        = \frac{\alpha^2Z^2}{4m^2 v^4 \sin^4(\theta / 2)}.    
+    \]
+\end{problembody}

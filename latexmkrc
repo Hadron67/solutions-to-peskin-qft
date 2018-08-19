@@ -1,3 +1,3 @@
 $pdf_mode = 1;
-$pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode';
+$pdflatex = 'pdflatex -shell-escape -synctex=1 -interaction=nonstopmode';
 @default_files = ('main.tex');
